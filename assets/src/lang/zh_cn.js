@@ -1,0 +1,730 @@
+export default {
+  auth: {
+    emptyIdentification: '你还没有填写邮箱/角色名哦',
+    emptyPassword: '密码要好好填哦',
+    emptyCaptcha: '你还没有填写验证码哦',
+    login: {
+      title: '登录',
+      button: '登录',
+      message: '登录以管理您的角色及皮肤',
+      keep: '保持登录状态',
+      success: '登录成功，欢迎回来~'
+    },
+    loggingIn: '登录中',
+    tooManyFails: '你尝试的次数太多啦，请输入验证码',
+    emptyEmail: '你还没有填写邮箱哦',
+    invalidEmail: '邮箱格式不正确！',
+    invalidPassword: '无效的密码。密码长度应该大于 8 并小于 16。',
+    emptyConfirmPwd: '确认密码不能为空',
+    invalidConfirmPwd: '密码和确认的密码不一样诶？',
+    emptyNickname: '你还没有填写昵称哦',
+    register: {
+      title: '注册',
+      button: '注册',
+      message: '欢迎使用 :sitename！',
+      nicknameIntro: '昵称可使用汉字，不可包含特殊字符',
+      repeatPwd: '重复密码',
+      close: '残念。。本皮肤站已经关闭注册咯 QAQ',
+      success: '注册成功，正在跳转~',
+      max: '你最多只能注册 :regs 个账户哦',
+      registered: '这个邮箱已经注册过啦，换一个吧'
+    },
+    registering: '注册中',
+    send: '发送',
+    sending: '发送中',
+    reset: {
+      title: '重置密码',
+      button: '重置',
+      invalid: '无效的链接',
+      expired: '链接已过期',
+      message: ':username，在这里重置你的密码',
+      success: '密码重置成功'
+    },
+    resetting: '重置中',
+    check: {
+      anonymous: '非法访问，请先登录',
+      admin: '看起来你并不是管理员哦',
+      banned: '你已经被本站封禁啦，请联系管理员解决',
+      token: '无效的 token，请重新登录'
+    },
+    forgot: {
+      title: '忘记密码',
+      button: '发送',
+      message: '我们将会向您发送一封验证邮件',
+      loginLink: '我又想起来了',
+      close: '本站已关闭重置密码功能',
+      frequentMail: '你邮件发送得太频繁啦，过 60 秒后再点发送吧',
+      unregistered: '该邮箱尚未注册'
+    },
+    mail: {
+      title: '重置您在 :sitename 上的账户密码',
+      success: '邮件已发送，一小时内有效，请注意查收。',
+      failed: '邮件发送失败，详细信息：:msg',
+      message: '您收到这封邮件，是因为在 :sitename 的用户重置密码功能使用了您的地址。',
+      ignore: '如果您并没有访问过我们的网站，或没有进行上述操作，请忽略这封邮件。 您不需要退订或进行其他进一步的操作。',
+      reset: '重置密码',
+      notice: '本邮件由系统自动发送，就算你回复了我们也不会回复你哦'
+    },
+    bind: {
+      title: '绑定邮箱',
+      button: '绑定',
+      message: '你需要绑定邮箱地址以继续使用本站',
+      introduction: '邮箱地址仅用于重置密码，我们将不会向您发送任何垃圾邮件',
+      registered: '该邮箱已被占用'
+    },
+    validation: {
+      identification: '邮箱或角色名格式错误',
+      email: '邮箱格式错误',
+      captcha: '验证码填写错误',
+      user: '用户不存在哦',
+      password: '邮箱或密码不对哦~'
+    },
+    logout: { success: '登出成功~', fail: '并没有有效的 session' },
+    nickname: '昵称',
+    email: 'Email',
+    identification: 'Email 或角色名',
+    password: '密码',
+    captcha: '请输入验证码',
+    changeCaptcha: '点击以更换图片',
+    loginLink: '已经有账号了？登录',
+    forgotLink: '忘记密码？',
+    registerLink: '注册新账号'
+  },
+  skinlib: {
+    addToCloset: '添加至衣柜',
+    removeFromCloset: '从衣柜中移除',
+    setItemName: '给你的皮肤起个名字吧~',
+    emptyItemName: '你还没有填写要收藏的材质名称啊',
+    anonymous: '请先登录',
+    private: '私密',
+    filter: {
+      nowShowing: '当前正显示',
+      skin: '皮肤',
+      cape: '披风',
+      anyModel: '（任意模型）',
+      steveModel: '（Steve 模型）',
+      alexModel: '（Alex 模型）',
+      uploader: '用户（:name）上传',
+      cleanFilter: '清除筛选'
+    },
+    sort: { newestUploaded: '最新上传', mostLikes: '最多收藏' },
+    setNewTextureName: '请输入新的材质名称：',
+    emptyNewTextureName: '你还没有输入新名称啊',
+    emptyTextureName: '给你的材质起个名字吧',
+    emptyTextureType: '请选择材质的类型',
+    emptyUploadFile: '你还没有上传任何文件哦',
+    encodingError: '错误：这张图片编码不对哦',
+    fileExtError: '错误：皮肤文件必须为 PNG 格式',
+    upload: {
+      title: '上传材质',
+      textureName: '材质名称',
+      nameRule: '材质名称应该小于 32 个字节且不能包含奇怪的符号',
+      textureType: '材质类型',
+      selectFile: '选择文件',
+      privateScoreNotice: '私密材质将会消耗更多的积分：每 KB 存储空间 :score 积分',
+      privacyNotice: '其他人将不会在皮肤库中看到此材质',
+      setAsPrivate: '设置为私密材质',
+      button: '确认上传',
+      typeError: '文件格式不对哦',
+      invalidSize: '不是有效的 :type 文件（宽 :width，高 :height）',
+      invalidHdSkin: '不是有效的高清皮肤（宽和高不是 32 的整数倍）',
+      lackScore: '积分不够啦',
+      repeated: '已经有人上传过这个材质了，直接添加到衣柜使用吧~',
+      success: '材质 :name 上传成功'
+    },
+    uploading: '上传中',
+    redirecting: '正在跳转...',
+    setAsPrivate: '设为隐私',
+    setAsPublic: '设为公开',
+    setPublicNotice: '要将此材质设置为公开吗？',
+    deleteNotice: '真的要删除此材质吗？',
+    general: {
+      filter: '过滤器',
+      myUpload: '我的上传',
+      sort: '排序',
+      searchTextures: '搜索材质',
+      uploadNewSkin: '上传新皮肤',
+      noResult: '无结果'
+    },
+    item: {
+      steve: '（Steve）',
+      alex: '（Alex）',
+      cape: '（披风）',
+      removeFromCloset: '从衣柜中移除',
+      addToCloset: '添加至衣柜',
+      anonymous: '请先登录',
+      private: '私密'
+    },
+    show: {
+      title: '材质详情',
+      anonymous: '登录后才能使用衣柜哦',
+      likes: '收藏人数',
+      detail: '详细信息',
+      name: '名称',
+      editName: '修改名称',
+      model: '适用模型',
+      downloadRaw: '右键另存为即可下载原始皮肤文件',
+      size: '文件大小',
+      uploader: '上传者',
+      uploadAt: '上传日期',
+      managePanel: '管理面板',
+      deleteTexture: '删除材质',
+      notice: '材质设为隐私或被删除后将会从每一个收藏者的衣柜中移除。',
+      noticeAdmin: '你可以将此材质设为隐私或删除。这将会使此材质从每一个收藏者的衣柜中移除。',
+      comment: '评论区',
+      commentNotAvailable: '本站未开启评论服务',
+      deleted: '请求的材质文件已经被删除',
+      contactAdmin: '请联系管理员删除该条目',
+      private: '请求的材质已经设为隐私，仅上传者和管理员可查看'
+    },
+    delete: { success: '材质已被成功删除' },
+    privacy: {
+      changePrivacy: '设置隐私',
+      setAsPrivate: '设为隐私',
+      setAsPublic: '设为公开',
+      success: '材质已被设为 :privacy'
+    },
+    rename: { success: '材质名称已被成功设置为 :name' },
+    noPermission: '你不是这个材质的上传者哦',
+    nonExistent: '材质不存在'
+  },
+  user: {
+    signRemainingTime: ':time :unit 后可签到',
+    timeUnitHour: '小时',
+    timeUnitMin: '分钟',
+    emptyClosetMsg: '<p>衣柜里啥都没有哦~</p><p>去<a href=":url">皮肤库</a>看看吧~</p>',
+    renameItem: '重命名物品',
+    removeItem: '从衣柜中移除',
+    setAsAvatar: '设为头像',
+    viewInSkinlib: '在皮肤库中查看',
+    switch2dPreview: '切换 2D 预览',
+    switch3dPreview: '切换 3D 预览',
+    removeFromClosetNotice: '确定要从衣柜中移除此材质吗？',
+    emptySelectedPlayer: '你还没有选择角色哦',
+    emptySelectedTexture: '你还没有选择要应用的材质哦',
+    renameClosetItem: '请输入此衣柜物品的新名称：',
+    changePlayerName: '请输入角色名：',
+    emptyPlayerName: '你还没有填写名称哦',
+    clearTexture: '确定要重置该用户的皮肤/披风吗？',
+    deletePlayer: '真的要删除该玩家吗？',
+    deletePlayerNotice: '这将是永久性的删除',
+    chooseClearTexture: '选择要删除的材质类型',
+    noClearChoice: '您还没选择要删除的材质类型',
+    setAvatar: '确定要将此材质设置为用户头像吗？',
+    setAvatarNotice: '将会自动截取皮肤头部',
+    emptyNewNickName: '你还没有填写新昵称啊',
+    changeNickName: '确定要将昵称设置为 :newNickname 吗？',
+    emptyPassword: '原密码不能为空',
+    emptyNewPassword: '新密码要好好填哦',
+    emptyNewEmail: '你还没有填写新邮箱啊',
+    changeEmail: '确定要将用户邮箱更改为 :newEmail 吗？',
+    emptyDeletePassword: '请先输入当前用户密码',
+    used: { title: '使用情况', players: '角色数量', storage: '存储空间' },
+    curScore: '当前积分',
+    scoreNotice: '点击积分查看说明',
+    sign: '签到',
+    signSuccess: '签到成功，获得了 :score 积分~',
+    cantSignUntil: ':time :unit 后才能再次签到哦~',
+    lastSign: '上次签到于 :time',
+    signRemainTime: ':time :unit 后可签到',
+    announcement: '公告',
+    scoreIntro: {
+      title: '积分是个啥？',
+      introduction:
+        '「既然你诚心诚意地发问了！」\n「那我们就大发慈悲地告诉你！」\n「为了守护皮肤站的和平」\n「为了防止皮肤站被破坏」\n「贯彻爱与真实的。。呸！」上面只是卖下萌~\n\n为了不出现用户一个劲上传材质导致存储空间爆满，我们决定启用积分系统。\n添加角色以及上传材质都会消耗积分，:returnScore。\n\n本站用户初始积分为 :initialScore，每日签到可以随机获得 :scoreFrom ~ :scoreTo 积分\n添加皮肤库里的材质到衣柜不消耗积分。\n',
+      willReturnScore: '而删除已经添加的角色和已上传的材质时积分将会被返还',
+      noReturnScore: '但删除已经添加的角色和已上传的材质时积分不会被返还',
+      rates: { storage: ':score 积分 = 1 KB 存储空间', player: ':score 积分 = 1 个角色' }
+    },
+    closet: {
+      upload: '上传材质',
+      search: '搜索材质',
+      typeToSearch: '输入即搜索',
+      switchCategory: '切换分类',
+      view: '在皮肤库中查看',
+      more: '更多',
+      setAvatar: '设为头像',
+      useAs: {
+        button: '使用...',
+        title: '要给哪个角色使用呢？',
+        empty: '你好像还没有添加任何角色哦',
+        add: '添加角色'
+      },
+      add: {
+        success: '材质 :name 收藏成功~',
+        repeated: '你已经收藏过这个材质啦',
+        lackScore: '积分不够添加收藏啦'
+      },
+      rename: { title: '重命名物品', success: '衣柜物品成功重命名至 :name' },
+      remove: {
+        title: '从衣柜中移除',
+        success: '材质已从衣柜中移除',
+        nonExistent: '衣柜中不存在此材质'
+      }
+    },
+    player: {
+      playerName: '角色名称',
+      edit: '编辑',
+      operation: '操作',
+      editPname: '修改角色名',
+      deleteTexture: '删除材质',
+      deletePlayer: '删除角色',
+      addPlayer: '添加新角色',
+      loginNotice: '你现在可以使用你所拥有的角色名来登录皮肤站啦~',
+      playerInfo: '角色信息 <small>（点击角色名以查看预览）</small>',
+      textures: {
+        steve: 'Steve 模型的皮肤：',
+        alex: 'Alex 模型的皮肤：',
+        cape: '披风：',
+        empty: '未上传'
+      },
+      pnameRule: '只能包含数字、字母以及下划线',
+      pnameRuleChinese: '可使用汉字，字母数字以及下划线',
+      add: {
+        repeated: '该角色名已经被其他人注册掉啦',
+        lackScore: '积分不够添加角色啦',
+        success: '成功添加了角色 :name'
+      },
+      delete: { success: '角色 :name 已被删除' },
+      rename: { repeated: '此角色名已被他人使用，换一个吧~', success: '角色 :old 已更名为 :new' },
+      set: { success: '材质已成功应用至角色 :name' },
+      clear: { success: '角色 :name 的材质已被成功重置' },
+      preference: { title: '优先模型', success: '角色 :name 的优先模型已更改至 :preference' }
+    },
+    profile: {
+      avatar: {
+        title: '更改头像？',
+        notice:
+          '请在衣柜中任意皮肤的右下角齿轮图标处选择「设为头像」，将会自动截取该皮肤的头部作为头像哦~ 如果看不到这个图标，请关闭 ADBlock，ABP 之类的广告过滤扩展。',
+        wrongType: '披风可不能设置为头像哦~',
+        nonExistent: '材质不存在。',
+        success: '设置成功！'
+      },
+      password: {
+        title: '更改密码',
+        old: '旧的密码',
+        new: '新密码',
+        confirm: '确认密码',
+        button: '修改密码',
+        wrongPassword: '原密码错误',
+        success: '密码修改成功，请重新登录'
+      },
+      nickname: {
+        title: '更改昵称',
+        empty: '当前未设置昵称，',
+        rule: '可使用除一些特殊符号外的任意字符',
+        success: '昵称已成功设置为 :nickname'
+      },
+      email: {
+        title: '更改邮箱',
+        new: '新邮箱',
+        password: '当前密码',
+        button: '修改邮箱',
+        wrongPassword: '密码错误',
+        existed: '这个邮箱已经被别人占用啦',
+        success: '邮箱修改成功，请重新登录'
+      },
+      delete: {
+        title: '删除账号',
+        notice: '确定要删除你在 :site 上的账号吗？',
+        admin: '管理员账号不能被删除哟',
+        button: '删除我的账户',
+        modalTitle: '这是危险操作，输入密码以继续',
+        modalNotice:
+          '此操作不可恢复！\n你所上传至皮肤库的材质仍会被保留，但你的角色将被永久删除。\n我们不提供任何备份，或者神奇的撤销按钮。\n我们警告过你了，确定要这样做吗？\n',
+        password: '当前密码',
+        wrongPassword: '密码错误',
+        success: '账号已被成功删除'
+      }
+    }
+  },
+  admin: {
+    operationsTitle: '更多操作',
+    ban: '封禁',
+    unban: '解封',
+    setAdmin: '设为管理员',
+    unsetAdmin: '解除管理员',
+    deleteUser: '删除用户',
+    cannotDeleteAdmin: '你不能删除管理员账号哦',
+    cannotDeleteSuperAdmin: '超级管理员账号不能被这样删除的啦',
+    changeEmail: '修改邮箱',
+    changeNickName: '修改昵称',
+    changePassword: '更改密码',
+    newUserEmail: '请输入新邮箱：',
+    newUserNickname: '请输入新昵称：',
+    newUserPassword: '请输入新密码：',
+    deleteUserNotice: '真的要删除此用户吗？此操作不可恢复',
+    scoreTip: '输入修改后的积分，回车提交',
+    doubleClickToSeeUser: '双击可查看该用户的信息',
+    doubleClickToSeePlayers: '双击可查看该用户的角色',
+    banned: '封禁',
+    normal: '普通用户',
+    admin: '管理员',
+    superAdmin: '超级管理员',
+    textureType: '材质类型',
+    skin: '皮肤（:model 模型）',
+    cape: '披风',
+    pid: '材质 ID',
+    pidNotice: '输入要更换的材质的 TID，输入 0 即可清除该角色的材质',
+    changePlayerTexture: '更换角色 :player 的材质',
+    changeTexture: '更换材质',
+    changePlayerName: '更改角色名',
+    changeOwner: '更换角色拥有者',
+    deletePlayer: '删除角色',
+    changePlayerOwner: '请输入此角色要让渡至的用户 UID：',
+    deletePlayerNotice: '真的要删除此角色吗？此操作不可恢复',
+    targetUser: '目标用户：:nickname',
+    noSuchUser: '没有这个用户哦~',
+    changePlayerNameNotice: '请输入新的角色名：',
+    emptyPlayerName: '您还没填写角色名呢',
+    textureUploads: '材质上传',
+    userRegistration: '用户注册',
+    configurePlugin: '插件配置',
+    noPluginConfigNotice: '插件已被禁用或无配置页',
+    deletePlugin: '删除插件',
+    statusEnabled: '已启用',
+    statusDisabled: '已禁用',
+    enablePlugin: '启用插件',
+    disablePlugin: '禁用插件',
+    confirmDeletion: '真的要删除这个插件吗？',
+    preparing: '正在准备',
+    downloadCompleted: '更新包下载完成',
+    extracting: '正在解压更新包',
+    index: {
+      totalUsers: '注册用户',
+      totalPlayers: '角色总数',
+      totalTextures: '上传材质总数',
+      diskUsage: '占用空间大小',
+      overview: '概览'
+    },
+    users: {
+      playersCount: { title: '拥有角色数' },
+      status: {
+        title: '状态',
+        normal: '普通用户',
+        banned: '封禁',
+        admin: '管理员',
+        superAdmin: '超级管理员'
+      },
+      operations: {
+        title: '更多操作',
+        nonExistent: '用户不存在',
+        noPermission: '你无权操作此用户',
+        email: { change: '修改邮箱', existed: ':email 已被占用', success: '邮箱修改成功' },
+        nickname: { change: '修改昵称', success: '昵称已成功设置为 :new' },
+        password: { change: '更改密码', success: '密码修改成功' },
+        score: { success: '积分修改成功' },
+        admin: {
+          set: { text: '设为管理员', success: '账号已被设置为管理员' },
+          unset: { text: '解除管理员', success: '账号已被解除管理员' }
+        },
+        ban: {
+          ban: { text: '封禁', success: '账号已被封禁' },
+          unban: { text: '解封', success: '账号已被解封' },
+          cantSuperAdmin: '无法封禁超级管理员',
+          cantAdmin: '非超级管理员无法封禁普通管理员'
+        },
+        delete: {
+          delete: '删除用户',
+          success: '账号已被成功删除',
+          cantSuperAdmin: '超级管理员账号不能被这样删除的啦',
+          cantAdmin: '你不能删除管理员账号哦'
+        }
+      }
+    },
+    players: {
+      noPermission: '你无权操作此角色',
+      operations: { title: '更多操作' },
+      preference: { success: '角色 :player 的优先模型已更改至 :preference' },
+      textures: {
+        change: '更换材质',
+        nonExistent: '材质 tid.:tid 不存在',
+        success: '角色 :player 的材质修改成功'
+      },
+      name: { success: '角色名成功更改为 :player' },
+      owner: { change: '更换角色拥有者', success: '角色 :player 已成功让渡至 :user' },
+      delete: { delete: '删除角色', success: '角色已被成功删除' }
+    },
+    customize: {
+      changeColor: { title: '更改配色', success: '修改配色成功' },
+      colors: {
+        blue: '蓝色主题（默认）',
+        blueLight: '蓝色主题 - 白色侧边栏',
+        yellow: '黄色主题',
+        yellowLight: '黄色主题 - 白色侧边栏',
+        green: '绿色主题',
+        greenLight: '绿色主题 - 白色侧边栏',
+        purple: '基佬紫',
+        purpleLight: '紫色主题 - 白色侧边栏',
+        red: '喜庆红（笑）',
+        redLight: '红色主题 - 白色侧边栏',
+        black: '高端黑',
+        blackLight: '黑色主题 - 白色侧边栏'
+      }
+    },
+    plugins: {
+      name: '名称',
+      description: '描述',
+      author: '作者',
+      version: '版本',
+      status: { title: '状态', enabled: '已启用', disabled: '已禁用' },
+      operations: {
+        title: '操作',
+        enabled: ':plugin 已启用',
+        disabled: ':plugin 已禁用',
+        deleted: '插件已被成功删除',
+        noConfigNotice: '插件未安装或未提供配置页面'
+      },
+      empty: '无结果'
+    },
+    update: {
+      complete: '更新完成',
+      info: {
+        title: '更新信息',
+        upToDate: '已更新至最新版本。',
+        available: '有更新可用。',
+        preReleaseWarning: '本次更新为预发布版，请谨慎选择是否更新。',
+        versions: { latest: '最新版本：', current: '当前版本：' },
+        releaseTime: '发布时间：',
+        preRelease: '当前版本为未发布测试版',
+        changeLog: { text: '更新日志：', empty: '无内容' },
+        downloads: { text: '下载地址：', link: '点击下载完整安装包' },
+        checkGithub:
+          '<a href=":url" target="_blank" class="btn btn-default pull-right">查看 GitHub Releases</a>',
+        button: '马上升级'
+      },
+      cautions: {
+        title: '注意事项',
+        text:
+          '请根据你的主机所在位置（国内/国外）选择更新源。\n如错选至相对于你的主机速度较慢的源，可能会造成检查/下载更新页面长时间无响应。\n'
+      },
+      download: { downloading: '正在下载更新包', size: '更新包大小：' },
+      errors: {
+        prefix: '发生错误：',
+        connection: '无法访问当前更新源。详细信息：',
+        writePermission: '您的服务器不支持自动更新：创建下载缓存文件夹失败，请检查目录权限。',
+        unzip: '更新包解压缩失败。错误代码：',
+        overwrite: '您的服务器不支持自动更新：无法覆盖文件。'
+      }
+    },
+    options: {
+      optionSaved: '设置已保存。',
+      homepage: {
+        title: '首页配置',
+        homePicUrl: { title: '首页图片地址', hint: '相对于首页的路径或者完整的 URL，留空以使用默认背景' },
+        faviconUrl: {
+          title: '网站图标',
+          hint: '相对 resources/assets/ 的路径或者完整的 URL',
+          description: '所使用的图像必须具有相同的宽度和高度（留空以使用默认图标）'
+        },
+        copyrightPrefer: {
+          title: '程序版权信息',
+          description:
+            '对于任何恶意修改页面<b>右下角</b>的版权信息（包括不限于删除、修改作者信息、修改链接指向）的用户，作者保留对其追究责任的权力。'
+        },
+        copyrightText: {
+          title: '自定义版权文字',
+          description:
+            '自定义版权文字内可使用占位符，<code>{site_name}</code> 将会被自动替换为站点名称，<code>{site_url}</code> 会被替换为站点地址。'
+        }
+      },
+      customJsCss: {
+        title: '自定义 CSS/JavaScript',
+        message:
+          '内容将会被追加至每个页面的 &lt;style&gt; 和 &lt;script&gt; 标签中。<br>\n- 这里有一些有用的示例：<a href="https://github.com/printempw/blessing-skin-server/wiki/Examples-of-custom-CSS-JavaScript">「自定义 CSS JavaScript」功能的一些实例@GitHub WiKi</a>\n',
+        customCss: 'CSS',
+        customJs: 'JavaScript'
+      },
+      rate: {
+        title: '积分换算',
+        scorePerStorage: { title: '存储', addon: '积分 = 1 KB' },
+        privateScorePerStorage: {
+          title: '私密材质存储',
+          addon: '积分 = 1 KB',
+          hint: '上传私密材质将消耗更多积分'
+        },
+        scorePerClosetItem: { title: '收藏消耗积分', addon: '积分 = 一个衣柜物品' },
+        returnScore: { title: '积分返还', label: '用户删除角色/材质/收藏时返还积分' },
+        scorePerPlayer: { title: '角色', addon: '积分 = 一个角色' },
+        userInitialScore: '新用户默认积分'
+      },
+      sign: {
+        title: '签到配置',
+        signScore: { title: '签到获得积分', addon1: '积分 ~', addon2: '积分' },
+        signGapTime: { title: '签到间隔时间', addon: '小时' },
+        signAfterZero: {
+          title: '签到时间',
+          label: '每天零点后可签到',
+          hint: '勾选后将无视上一条，每天零时后均可签到'
+        }
+      },
+      general: {
+        title: '常规选项',
+        siteName: '站点标题',
+        siteDescription: '站点描述',
+        siteUrl: { title: '站点地址（URL）', hint: '以 http(s):// 开头，不要以 / 结尾' },
+        userCanRegister: { title: '开放注册', label: '任何人都可以注册' },
+        regsPerIp: '每个 IP 限制注册数',
+        ipGetMethod: {
+          title: 'IP 获取方式',
+          httpXForwardedFor: 'HTTP_X_FORWARDED_FOR（可被伪造）',
+          remoteAddr: 'REMOTE_ADDR（无法伪造，反代、负载均衡用户不要选）',
+          hint: '皮肤站单靠 PHP 是无法获取客户端真实 IP 的，原因请自行搜索。'
+        },
+        maxUploadFileSize: {
+          title: '最大允许上传大小',
+          hint: 'PHP 限制：:size，定义在 php.ini 中。'
+        },
+        allowChinesePlayername: { title: '角色名', label: '允许中文角色名' },
+        apiType: '首选 JSON API',
+        autoDelInvalidTexture: {
+          title: '失效材质',
+          label: '自动删除失效材质',
+          hint: '自动从皮肤库中删除文件不存在的材质记录'
+        },
+        commentScript: {
+          title: '评论代码',
+          description:
+            '评论代码内可使用占位符，<code>{tid}</code> 将会被自动替换为材质的 id，<code>{name}</code> 会被替换为材质名称，<code>{url}</code> 会被替换为当前页面地址。'
+        },
+        allowSendingStatistics: {
+          title: '统计信息',
+          label: '发送程序使用情况统计信息以帮助开发',
+          hint: '隐私信息不会被收集'
+        }
+      },
+      announ: {
+        title: '站点公告',
+        announcement: { description: '可使用 Markdown 进行排版' }
+      },
+      resources: {
+        title: '资源文件配置',
+        hint: '如果启用了 CDN 缓存请适当修改这些配置',
+        forceSsl: {
+          title: '强制 SSL',
+          label: '强制使用 HTTPS 协议加载资源',
+          hint: '请确认 SSL 可用后再开启'
+        },
+        autoDetectAssetUrl: {
+          title: '资源地址',
+          label: '自动判断资源文件地址',
+          description:
+            '根据当前 URL 自动加载资源文件，如果关闭则将根据「站点地址」填写的内容加载。如果出现 CDN 回源问题请关闭'
+        },
+        return200WhenNotfound: {
+          title: 'HTTP 响应码',
+          label: '请求不存在的角色时返回 200 而不是 404',
+          description:
+            '如果你的 CDN 不缓存 404 页面，请打开此项。否则大量对不存在角色的 Profile 请求会加重站点负载。'
+        },
+        cacheExpireTime: {
+          title: '缓存失效时间',
+          hint: '秒数，86400 = 一天，31536000 = 一年'
+        }
+      },
+      update: {
+        title: '更新选项',
+        checkUpdate: { title: '检查更新', label: '自动检查更新并提示' },
+        updateSource: {
+          title: '更新源',
+          description:
+            '可用的更新源列表可以在这里查看：<a href="https://github.com/printempw/blessing-skin-server/wiki/%E6%9B%B4%E6%96%B0%E6%BA%90%E5%88%97%E8%A1%A8">@GitHub Wiki</a>'
+        }
+      }
+    }
+  },
+  general: {
+    skin: '皮肤',
+    cape: '披风',
+    fatalError: '严重错误（请联系作者）',
+    confirmLogout: '确定要登出吗？',
+    confirm: '确定',
+    cancel: '取消',
+    more: '更多',
+    pagination: '第 :page 页，共 :total 页',
+    searchResult: '（关键词 “:keyword” 的搜索结果）',
+    noResult: '无结果',
+    index: '首页',
+    skinlib: '皮肤库',
+    userCenter: '用户中心',
+    logout: '登出',
+    login: '登录',
+    register: '现在注册',
+    profile: '个人资料',
+    adminPanel: '管理面板',
+    explore: '浏览',
+    manage: '管理',
+    anonymous: '未登录',
+    back: '返回',
+    dashboard: '仪表盘',
+    myCloset: '我的衣柜',
+    playerManage: '角色管理',
+    userManage: '用户管理',
+    pluginManage: '插件管理',
+    pluginMarket: '插件市场',
+    pluginInstalled: '已安装',
+    customize: '个性化',
+    options: '站点配置',
+    importV2: '导入数据',
+    scoreOptions: '积分配置',
+    checkUpdate: '检查更新',
+    downloadUpdate: '下载更新',
+    close: '关闭',
+    loading: '正在加载',
+    texturePreview: '材质预览',
+    walk: '行走',
+    run: '奔跑',
+    rotation: '旋转',
+    submit: '提交',
+    notice: '提示',
+    switch2DPreview: '切换 2D 预览',
+    illegalParameters: '非法参数',
+    private: '私密',
+    public: '公开',
+    unexistentUser: '不存在的用户',
+    unexistentPlayer: '角色不存在',
+    textureDeleted: '请求的材质已被删除',
+    textureNotUploaded: '该用户尚未上传请求的材质类型 :type',
+    operations: '操作',
+    user: {
+      uid: 'UID',
+      email: '邮箱',
+      nickname: '昵称',
+      password: '密码',
+      score: '积分',
+      registerAt: '注册时间'
+    },
+    player: {
+      pid: 'PID',
+      owner: '拥有者',
+      playerName: '角色名',
+      preference: '优先模型',
+      previews: '预览材质',
+      lastModified: '修改时间'
+    }
+  },
+  vendor: {
+    datatables: {
+      sProcessing: '处理中...',
+      sLengthMenu: '每页 _MENU_ 项',
+      sZeroRecords: '没有匹配结果',
+      sInfo: '当前显示第 _START_ 至 _END_ 项，共 _TOTAL_ 项。',
+      sInfoEmpty: '当前显示第 0 至 0 项，共 0 项',
+      sInfoFiltered: '(由 _MAX_ 项结果过滤)',
+      sInfoPostFix: '',
+      sSearch: '搜索:',
+      sUrl: '',
+      sEmptyTable: '表中数据为空',
+      sLoadingRecords: '载入中...',
+      sInfoThousands: ',',
+      oPaginate: {
+        sFirst: '首页',
+        sPrevious: '上页',
+        sNext: '下页',
+        sLast: '末页',
+        sJump: '跳转'
+      },
+      oAria: { sSortAscending: ': 以升序排列此列', sSortDescending: ': 以降序排列此列' }
+    }
+  }
+}
