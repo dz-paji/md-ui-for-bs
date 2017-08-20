@@ -351,6 +351,11 @@ export default {
         ]
       })
     }
+  },
+  created () {
+    document.title = this.$trans('general.profile') +
+      ' - ' +
+      this.$store.state.site.siteName
   }
 }
 </script>

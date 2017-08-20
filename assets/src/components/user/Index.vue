@@ -155,6 +155,11 @@ export default {
         )
       })
     }
+  },
+  created () {
+    document.title = this.$trans('general.dashboard') +
+      ' - ' +
+      this.$store.state.site.siteName
   }
 }
 </script>
