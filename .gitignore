@@ -10,4 +10,5 @@ test/e2e/reports
 cordova/platforms
 cordova/plugins
 thumbs.db
+md-ui_*.zip
 !.gitkeep
