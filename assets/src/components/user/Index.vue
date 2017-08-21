@@ -82,12 +82,14 @@ import { mapState } from 'vuex'
 import { Dialog, Toast } from 'quasar'
 import VueMarkdown from 'vue-markdown'
 import BaseSkeleton from './Base'
+import title from 'src/mixins/title'
 
 export default {
   components: {
     BaseSkeleton,
     VueMarkdown
   },
+  mixins: [title],
   computed: {
     signButtonText () {
       if (this.canSign) {
@@ -155,11 +157,6 @@ export default {
         )
       })
     }
-  },
-  created () {
-    document.title = this.$trans('general.dashboard') +
-      ' - ' +
-      this.$store.state.site.siteName
   }
 }
 </script>

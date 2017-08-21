@@ -22,8 +22,16 @@ export default new VueRouter({
 
   routes: [
     { path: '/', redirect: '/user' },
-    { path: '/user', component: load('user/Index') },
-    { path: '/user/profile', component: load('user/Profile') },
+    {
+      path: '/user',
+      component: load('user/Index'),
+      meta: { title: 'general.dashboard' }
+    },
+    {
+      path: '/user/profile',
+      component: load('user/Profile'),
+      meta: { title: 'general.profile' }
+    },
     {
       path: '/go',
       beforeEnter: to => {

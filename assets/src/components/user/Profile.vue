@@ -170,6 +170,7 @@ import { mapGetters } from 'vuex'
 import VeeValidate from 'vee-validate'
 import { Cookies, Dialog, Toast } from 'quasar'
 import BaseSkeleton from './Base'
+import title from 'src/mixins/title'
 
 Vue.use(VeeValidate)
 
@@ -177,6 +178,7 @@ export default {
   components: {
     BaseSkeleton
   },
+  mixins: [title],
   computed: {
     ...mapGetters(['isAdmin']),
     deleteNotice () {
@@ -351,11 +353,6 @@ export default {
         ]
       })
     }
-  },
-  created () {
-    document.title = this.$trans('general.profile') +
-      ' - ' +
-      this.$store.state.site.siteName
   }
 }
 </script>
