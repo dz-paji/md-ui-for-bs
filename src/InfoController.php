@@ -35,7 +35,8 @@ class InfoController extends Controller
                 'isReturn' => option('return_score'),
                 'perStorage' => option('score_per_storage'),
                 'perPlayer' => option('score_per_player')
-            ]
+            ],
+            'allowChinesePlayerName' => option('allow_chinese_playername')
         ];
     }
 
@@ -72,5 +73,14 @@ class InfoController extends Controller
                     + floor($user->getScore() / option('score_per_storage'))
             ]
         ];
+    }
+
+    public function playerInfo(UserRepository $users)
+    {
+        return $users
+            ->getCurrentUser()
+            ->players
+            ->makeHidden(['last_modified'])
+            ->toArray();
     }
 }

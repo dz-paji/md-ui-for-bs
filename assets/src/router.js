@@ -28,6 +28,11 @@ export default new VueRouter({
       meta: { title: 'general.dashboard' }
     },
     {
+      path: '/user/player',
+      component: load('user/Player'),
+      meta: { title: 'general.playerManage' }
+    },
+    {
       path: '/user/profile',
       component: load('user/Profile'),
       meta: { title: 'general.profile' }

@@ -14,7 +14,8 @@ export default new Vuex.Store({
       locale: 'zh_CN',
       announcement: '',
       customCopyright: '',
-      bsCopyright: ''
+      bsCopyright: '',
+      allowChinesePlayerName: false
     },
     user: {
       role: 'normal',

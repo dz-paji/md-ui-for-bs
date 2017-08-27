@@ -294,7 +294,7 @@ export default {
       loginNotice:
         'Now you can log in with player names you owned instead email address.',
       playerInfo:
-        'Information <small>(click player name to show preview)</small>',
+        'Information (click player name to show preview)',
       textures: {
         steve: 'Steve Model：',
         alex: 'Alex Model：',
@@ -775,8 +775,12 @@ export default {
     loading: 'Loading',
     texturePreview: 'Texture Preview',
     walk: 'Walk',
+    fastWalk: 'Fast Walk',
     run: 'Run',
+    expandArms: 'Expand Arms',
     rotation: 'Rotation',
+    prevBackground: 'Last Background',
+    nextBackground: 'Next Background',
     submit: 'Submit',
     notice: 'Notice',
     switch2DPreview: 'Switch to 2D Preview',

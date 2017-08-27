@@ -13,10 +13,12 @@ return function () {
         ], function ($route) {
             $route->any('info/site', 'InfoController@siteInfo');
             $route->any('info/user', 'InfoController@userInfo');
+            $route->any('info/player', 'InfoController@playerInfo');
         });
     });
 
     // View alias
     View::alias($ns.'::main', 'user.index');
+    View::alias($ns.'::main', 'user.player');
     View::alias($ns.'::main', 'user.profile');
 };

@@ -2,3 +2,4 @@ build/*.js
 config/*.js
 assets/dist/*.js
 assets/src/lang/**/*.js
+assets/src/external/*.js
