@@ -183,7 +183,7 @@ export default {
     },
     prevBackground () {
       if (this.bg === 0) {
-        this.bg = 13
+        this.bg = 20
       } else {
         this.bg--
       }
