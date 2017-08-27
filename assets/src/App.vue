@@ -12,4 +12,7 @@
 export default {}
 </script>
 
-<style></style>
+<style lang="stylus">
+.card-title
+  padding 9px 16px 9px 16px
+</style>
