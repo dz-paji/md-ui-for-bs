@@ -243,14 +243,11 @@ export default {
                   {
                     pid: this.players[index].pid,
                     new_player_name: name
+                  },
+                  {
+                    success: () => (this.players[index].player_name = name)
                   }
-                ).then(({ errno, msg }) => {
-                  if (errno !== 0) {
-                    return Toast.create.warning(msg)
-                  }
-                  Toast.create.positive(msg)
-                  this.players[index].player_name = name
-                })
+                )
               }
 
               if (preference !== this.players[index].preference) {
@@ -259,14 +256,12 @@ export default {
                   {
                     pid: this.players[index].pid,
                     preference
+                  },
+                  {
+                    success: () =>
+                      (this.players[index].preference = preference)
                   }
-                ).then(({ errno, msg }) => {
-                  if (errno !== 0) {
-                    return Toast.create.warning(msg)
-                  }
-                  Toast.create.positive(msg)
-                  this.players[index].preference = preference
-                })
+                )
               }
             }
           },
@@ -290,7 +285,7 @@ export default {
         buttons: [
           {
             label: this.$trans('general.confirm'),
-            handler: async ({ textures }) => {
+            handler: ({ textures }) => {
               if (textures.length === 0) {
                 return Toast.create.warning(this.$trans('user.noClearChoice'))
               }
@@ -299,15 +294,7 @@ export default {
               ;['steve', 'alex', 'cape'].forEach(type => {
                 data[type] = textures.includes(type) ? 1 : 0
               })
-              const { errno, msg } = await this.$bs(
-                '/user/player/texture/clear',
-                data
-              )
-              if (errno !== 0) {
-                Toast.create.warning(msg)
-              } else {
-                Toast.create.positive(msg)
-              }
+              this.$bs('/user/player/texture/clear', data)
             }
           },
           { label: this.$trans('general.cancel') }
@@ -322,16 +309,16 @@ export default {
           {
             label: this.$trans('general.confirm'),
             classes: 'negative',
-            handler: async () => {
-              const { errno, msg } = await this.$bs(
+            handler: () => {
+              this.$bs(
                 '/user/player/delete',
-                { pid }
+                { pid },
+                {
+                  success: () => (this.players = this.players.filter(
+                    player => player.pid !== pid
+                  ))
+                }
               )
-              if (errno !== 0) {
-                return Toast.create.warning(msg)
-              }
-              Toast.create.positive(msg)
-              this.players = this.players.filter(player => player.pid !== pid)
             }
           },
           {
@@ -355,16 +342,14 @@ export default {
         buttons: [
           {
             label: this.$trans('general.confirm'),
-            handler: async ({ name }) => {
-              const { errno, msg } = await this.$bs(
+            handler: ({ name }) => {
+              this.$bs(
                 '/user/player/add',
-                { player_name: name }
+                { player_name: name },
+                {
+                  success: () => (this.fetchPlayersData())
+                }
               )
-              if (errno !== 0) {
-                return Toast.create.warning(msg)
-              }
-              Toast.create.positive(msg)
-              this.fetchPlayersData()
             }
           },
           {

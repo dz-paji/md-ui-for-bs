@@ -79,7 +79,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { Dialog, Toast } from 'quasar'
+import { Dialog } from 'quasar'
 import VueMarkdown from 'vue-markdown'
 import BaseSkeleton from './Base'
 import title from 'src/mixins/title'
@@ -115,21 +115,22 @@ export default {
   },
   methods: {
     async sign () {
-      const result = await this.$bs('/user/sign', {})
-      if (result.errno !== 0) {
-        return Toast.create.warning(result.msg)
-      }
-      Toast.create.positive(result.msg)
-      this.$store.commit(
-        'updateUserInfo',
+      this.$bs(
+        '/user/sign',
+        {},
         {
-          storageUsage: {
-            used: result.storage.used,
-            total: result.storage.total
-          },
-          score: result.score,
-          canSign: false,
-          canSignRemainingTime: result.remaining_time
+          success: result => this.$store.commit(
+            'updateUserInfo',
+            {
+              storageUsage: {
+                used: result.storage.used,
+                total: result.storage.total
+              },
+              score: result.score,
+              canSign: false,
+              canSignRemainingTime: result.remaining_time
+            }
+          )
         }
       )
     },

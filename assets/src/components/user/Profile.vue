@@ -212,18 +212,13 @@ export default {
         return
       }
 
-      const { errno, msg } = await this.$bs(
+      await this.$bs(
         '/user/profile?action=password',
         {
           current_password: this.password.old,
           new_password: this.password.newPass
         }
       )
-
-      if (errno !== 0) {
-        return Toast.create.warning(msg)
-      }
-      await Toast.create.positive(msg)
       try {
         await this.$bs('/auth/logout', {})
       } catch (err) {
@@ -245,20 +240,17 @@ export default {
         buttons: [
           {
             label: this.$trans('general.confirm'),
-            handler: async () => {
-              const { errno, msg } = await this.$bs(
+            handler: () => {
+              this.$bs(
                 '/user/profile?action=nickname',
-                { new_nickname: this.nickname }
+                { new_nickname: this.nickname },
+                {
+                  success: () => this.$store.commit(
+                    'updateUserInfo',
+                    { nickname: this.nickname }
+                  )
+                }
               )
-              if (errno === 0) {
-                this.$store.commit(
-                  'updateUserInfo',
-                  { nickname: this.nickname }
-                )
-                Toast.create.positive(msg)
-              } else {
-                Toast.create.warning(msg)
-              }
             }
           },
           { label: this.$trans('general.cancel') }
@@ -282,19 +274,13 @@ export default {
           {
             label: this.$trans('general.confirm'),
             handler: async () => {
-              const { errno, msg } = await this.$bs(
+              await this.$bs(
                 '/user/profile?action=email',
                 {
                   new_email: this.email,
                   password: this.emailPass
                 }
               )
-
-              if (errno !== 0) {
-                return Toast.create.warning(msg)
-              }
-
-              await Toast.create.positive(msg)
               try {
                 await this.$bs('/auth/logout', {})
               } catch (err) {
@@ -330,7 +316,8 @@ export default {
 
               const { errno, msg } = await this.$bs(
                 '/user/profile?action=delete',
-                { password }
+                { password },
+                { useToast: false }
               )
               if (errno !== 0) {
                 return Toast.create.warning(msg)
