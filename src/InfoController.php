@@ -55,7 +55,7 @@ class InfoController extends Controller
 
         return [
             'role' => Arr::get($roles, $user->getPermission()),
-            'avatar' => avatar($user, 25),
+            'avatar' => avatar($user, 64),
             'nickname' => $user->nickname ?: $user->email,
             'score' => $user->getScore(),
             'canSign' => $user->canSign(),
