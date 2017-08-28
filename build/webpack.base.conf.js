@@ -6,7 +6,6 @@ var
   env = require('./env-utils'),
   merge = require('webpack-merge'),
   projectRoot = path.resolve(__dirname, '../'),
-  ProgressBarPlugin = require('progress-bar-webpack-plugin'),
   useCssSourceMap =
     (env.dev && config.dev.cssSourceMap) ||
     (env.prod && config.build.productionSourceMap)
@@ -104,9 +103,6 @@ module.exports = {
         context: path.resolve(__dirname, '../assets/assets/src'),
         postcss: cssUtils.postcss
       }
-    }),
-    new ProgressBarPlugin({
-      format: config.progressFormat
     })
   ],
   performance: {

@@ -6,7 +6,8 @@ module.exports = {
     ecmaVersion: 2017
   },
   env: {
-    browser: true
+    browser: true,
+    mocha: true
   },
   globals: {
     'cordova': true,

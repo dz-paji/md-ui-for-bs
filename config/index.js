@@ -26,11 +26,15 @@ module.exports = {
     // Disable it if it has side-effects for your specific app
     purifyCSS: true
   },
+  test: {
+    index: path.resolve(__dirname, '../assets/dist/index.html'),
+    publicPath: './'
+  },
   dev: {
     env: require('./dev.env'),
     cssSourceMap: true,
     // auto open browser or not
-    openBrowser: true,
+    openBrowser: false,
     publicPath: '/',
     port: 8080,
 

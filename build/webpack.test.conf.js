@@ -7,10 +7,12 @@ var
   baseWebpackConfig = require('./webpack.base.conf'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
-  OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin'),
-  ProgressBarPlugin = require('progress-bar-webpack-plugin')
+  OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = merge(baseWebpackConfig, {
+  output: {
+    publicPath: config.test.publicPath
+  },
   module: {
     rules: cssUtils.styleRules({
       sourceMap: config.build.productionSourceMap,
@@ -39,7 +41,7 @@ module.exports = merge(baseWebpackConfig, {
       filename: '[name].[contenthash].css'
     }),
     new HtmlWebpackPlugin({
-      filename: config.build.index,
+      filename: config.test.index,
       template: 'assets/src/index.html',
       inject: true,
       minify: {
@@ -71,9 +73,6 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    }),
-    new ProgressBarPlugin({
-      format: config.progressFormat
     })
   ]
 })

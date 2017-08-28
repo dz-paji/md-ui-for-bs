@@ -5,7 +5,8 @@ var
   cssUtils = require('./css-utils'),
   baseWebpackConfig = require('./webpack.base.conf'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
-  FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+  FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin'),
+  ProgressBarPlugin = require('progress-bar-webpack-plugin')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -35,6 +36,9 @@ module.exports = merge(baseWebpackConfig, {
     }),
     new FriendlyErrorsPlugin({
       clearConsole: config.dev.clearConsoleOnRebuild
+    }),
+    new ProgressBarPlugin({
+      format: config.progressFormat
     })
   ],
   performance: {
