@@ -1,4 +1,6 @@
 # Material Design UI for Blessing Skin Server
+[![Build Status](https://travis-ci.org/g-plane/md-ui-for-bs.svg?branch=master)](https://travis-ci.org/g-plane/md-ui-for-bs)
+[![Build Status](https://circleci.com/gh/g-plane/md-ui-for-bs/tree/master.svg?style=shield)](https://circleci.com/gh/g-plane/md-ui-for-bs)
 
 ## 开发与构建
 
