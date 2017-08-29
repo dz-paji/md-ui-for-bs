@@ -2,6 +2,9 @@
 [![Build Status](https://travis-ci.org/g-plane/md-ui-for-bs.svg?branch=master)](https://travis-ci.org/g-plane/md-ui-for-bs)
 [![Build Status](https://circleci.com/gh/g-plane/md-ui-for-bs/tree/master.svg?style=shield)](https://circleci.com/gh/g-plane/md-ui-for-bs)
 
+## 预览
+[这个页面](screenshots.md)可以查看最新的构建预览
+
 ## 开发与构建
 
 ``` bash
