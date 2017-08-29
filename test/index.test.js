@@ -9,6 +9,7 @@ describe('App Appearance', function () {
   this.timeout(0)
 
   before(async () => {
+    mock.start()
     browser = await puppeteer.launch()
     page = await browser.newPage()
     await page.setViewport({ width: 1920, height: 1080 })

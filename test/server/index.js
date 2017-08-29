@@ -6,6 +6,13 @@ const router = require('./router')
 const app = new Koa()
 
 app.use(serve('assets/dist'))
-app.use(router.routes())
 
-module.exports = http.createServer(app.callback()).listen(3000)
+let server
+
+module.exports = {
+  start: (customRouter = {}) => {
+    app.use(router(customRouter))
+    server = http.createServer(app.callback()).listen(3000)
+  },
+  close: () => server.close()
+}

@@ -3,6 +3,12 @@ const path = require('path')
 const puppeteer = require('puppeteer')
 const mock = require('../test/server')
 
+mock.start({
+  '/md/info/site': {
+    locale: 'en'
+  }
+})
+
 function resolve (relative) {
   return path.resolve(__dirname, '..', relative)
 }
