@@ -2,3 +2,15 @@ language: node_js
 node_js: 8
 
 cache: yarn
+
+after_success: node ./scripts/screenshot.js
+
+deploy:
+  provider: pages
+  skin_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: ./screenshots
+  name: g-plane
+  email: g-plane@hotmail.com
+  on:
+    branch: master
