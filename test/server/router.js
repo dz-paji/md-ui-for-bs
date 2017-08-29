@@ -11,5 +11,13 @@ module.exports = custom => {
     )
   })
 
+  router.get('/md/info/user', ctx => {
+    ctx.body = Object.assign(
+      {},
+      mockData['/md/info/user'],
+      custom['/md/info/user'] || {}
+    )
+  })
+
   return router.routes()
 }

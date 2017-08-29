@@ -16,5 +16,15 @@ module.exports = {
       perPlayer: 50
     },
     allowChinesePlayerName: true
+  },
+  '/md/info/user': {
+    role: 'admin',
+    avatar: '/img/avatar.png',
+    nickname: 'gplane',
+    score: 1500,
+    canSign: true,
+    canSignRemainingTime: 0,
+    playersUsage: { used: 1, total: 20 },
+    storageUsage: { used: 30, total: 100 }
   }
 }

@@ -20,6 +20,8 @@ shell.cp('-R', 'assets/src/statics', targetPath)
 
 webpack(webpackConfig, function (err, stats) {
   if (err) throw err
+
+  shell.cp('-R', 'test/mock/img', targetPath)
   process.stdout.write(stats.toString({
     colors: true,
     modules: false,
