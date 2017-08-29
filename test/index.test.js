@@ -1,4 +1,4 @@
-const should = require('chai').should()  // eslint-disable-line no-unused-vars
+const expect = require('chai').expect
 const mock = require('./server')
 const puppeteer = require('puppeteer')
 
@@ -24,7 +24,7 @@ describe('App Appearance', function () {
     const siteName = await page.evaluate(() => {
       return document.querySelector('.toolbar-title > div').textContent.trim()
     })
-    siteName.should.equal('Blessing Skin Server')
+    expect(siteName).to.equal('Blessing Skin Server')
   })
 
   it('should display announcement', async () => {
@@ -34,6 +34,6 @@ describe('App Appearance', function () {
         'div.auto > div > div.card-content > div'
       ).innerHTML
     })
-    announcement.should.equal('<p><s>Just for test!</s></p>\n')
+    expect(announcement).to.equal('<p><s>Just for test!</s></p>\n')
   })
 })

@@ -10,7 +10,8 @@
     "clean": "node build/script.clean.js",
     "dev": "node build/script.dev.js",
     "build": "node build/script.build.js",
-    "test": "node build/script.build-for-test.js && mocha",
+    "pretest": "node build/script.build-for-test.js",
+    "test": "mocha",
     "lint": "eslint --ext .js,.vue src",
     "zip": "node scripts/zip.js",
     "release": "yarn run build && yarn run zip"
