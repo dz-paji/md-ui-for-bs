@@ -2,11 +2,6 @@ machine:
   node:
     version: 8
 
-general:
-  branches:
-    ignore:
-      - gh-pages
-
 dependencies:
   override:
     - yarn

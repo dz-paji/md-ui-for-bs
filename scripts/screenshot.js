@@ -1,5 +1,3 @@
-const fs = require('fs')
-const path = require('path')
 const puppeteer = require('puppeteer')
 const mock = require('../test/server')
 
@@ -8,14 +6,6 @@ mock.start({
     locale: 'en'
   }
 })
-
-function resolve (relative) {
-  return path.resolve(__dirname, '..', relative)
-}
-
-if (!fs.existsSync(resolve('screenshots'))) {
-  fs.mkdirSync(resolve('screenshots'))
-}
 
 async function gotoPage (url, browser) {
   try {
