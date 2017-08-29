@@ -7,7 +7,7 @@ after_success: node ./scripts/screenshot.js
 
 deploy:
   provider: pages
-  skin_cleanup: true
+  skip_cleanup: true
   github_token: $GITHUB_TOKEN
   local_dir: ./screenshots
   name: g-plane
