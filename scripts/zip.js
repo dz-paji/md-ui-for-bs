@@ -2,6 +2,7 @@ const version = require('../package.json').version
 const fs = require('fs')
 const path = require('path')
 const JSZip = require('jszip')
+const isCI = require('is-ci')
 
 const zip = new JSZip().folder('md-ui')
 const root = zip.folder('md-ui')
@@ -58,4 +59,8 @@ zip
     compression: 'DEFLATE',
     compressionOptions: { level: 9 }
   })
-  .pipe(fs.createWriteStream(`./md-ui_${version}.zip`))
+  .pipe(fs.createWriteStream(
+    isCI
+      ? path.resolve(process.env.CIRCLE_ARTIFACTS, 'md_ui.zip')
+      : `./md-ui_${version}.zip`
+  ))
