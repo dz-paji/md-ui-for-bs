@@ -6,7 +6,7 @@ let browser
 let page
 let unmock
 
-describe('App Appearance', function () {
+describe('User > Index', function () {
   this.timeout(0)
 
   before(async () => {
@@ -20,13 +20,6 @@ describe('App Appearance', function () {
   after(() => {
     browser.close()
     unmock()
-  })
-
-  it('should display site name', async () => {
-    const siteName = await page.evaluate(() => {
-      return document.querySelector('.toolbar-title > div').textContent.trim()
-    })
-    expect(siteName).to.equal('Blessing Skin Server')
   })
 
   it('should display announcement', async () => {
