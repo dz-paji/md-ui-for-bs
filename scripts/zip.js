@@ -4,6 +4,7 @@ const path = require('path')
 const JSZip = require('jszip')
 
 const zip = new JSZip().folder('md-ui')
+const root = zip.folder('md-ui')
 
 const assetsPath = path.resolve(__dirname, '..', 'assets', 'dist')
 const phpSrcPath = path.resolve(__dirname, '..', 'src')
@@ -13,7 +14,7 @@ const viewsPath = path.resolve(__dirname, '..', 'views')
 fs.readdirSync(assetsPath).forEach(file => {
   const stat = fs.statSync(path.resolve(assetsPath, file))
   if (stat.isFile()) {
-    zip
+    root
       .folder('assets')
       .folder('dist')
       .file(file, fs.readFileSync(path.resolve(assetsPath, file)))
@@ -21,7 +22,7 @@ fs.readdirSync(assetsPath).forEach(file => {
     fs
       .readdirSync(path.resolve(assetsPath, file))
       .forEach(f =>
-        zip
+        root
           .folder('assets')
           .folder('dist')
           .folder(file)
@@ -33,7 +34,7 @@ fs.readdirSync(assetsPath).forEach(file => {
 fs
   .readdirSync(phpSrcPath)
   .forEach(file =>
-    zip
+    root
       .folder('src')
       .file(file, fs.readFileSync(path.resolve(phpSrcPath, file)))
   )
@@ -41,13 +42,13 @@ fs
 fs
   .readdirSync(viewsPath)
   .forEach(file =>
-    zip
+    root
       .folder('views')
       .file(file, fs.readFileSync(path.resolve(viewsPath, file)))
   )
 
 ;['bootstrap.php', 'LICENSE', 'package.json'].forEach(file =>
-  zip.file(file, fs.readFileSync(path.resolve(__dirname, '..', file)))
+  root.file(file, fs.readFileSync(path.resolve(__dirname, '..', file)))
 )
 
 // Generate ZIP file
