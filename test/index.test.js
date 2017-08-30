@@ -4,12 +4,13 @@ const puppeteer = require('puppeteer')
 
 let browser
 let page
+let unmock
 
 describe('App Appearance', function () {
   this.timeout(0)
 
   before(async () => {
-    mock.start()
+    unmock = mock()
     browser = await puppeteer.launch()
     page = await browser.newPage()
     await page.setViewport({ width: 1920, height: 1080 })
@@ -18,7 +19,7 @@ describe('App Appearance', function () {
 
   after(() => {
     browser.close()
-    mock.close()
+    unmock()
   })
 
   it('should display site name', async () => {

@@ -13,6 +13,7 @@
     "pretest": "node build/script.build-for-test.js",
     "test": "mocha",
     "lint": "eslint --ext .js,.vue src",
+    "mock": "node scripts/mock.js",
     "zip": "node scripts/zip.js",
     "release": "yarn run build && yarn run zip"
   },
