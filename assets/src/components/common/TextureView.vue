@@ -143,7 +143,9 @@ export default {
   computed: {
     bgStyle () {
       return {
-        background: `url(${bgs['bg' + this.bg]})`
+        'background-image': `url(${bgs['bg' + this.bg]})`,
+        'background-position': 'center',
+        'background-repeat': 'no-repeat'
       }
     }
   },
