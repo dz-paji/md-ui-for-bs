@@ -1,21 +1,23 @@
 const Router = require('koa-router')
-const router = new Router()
 const mockData = require('../mock')
 
 module.exports = custom => {
-  router.get('/md/info/site', ctx => {
+  const router = new Router({
+    prefix: '/md/info'
+  })
+  router.get('/site', ctx => {
     ctx.body = Object.assign(
       {},
-      mockData['/md/info/site'],
-      custom['/md/info/site'] || {}
+      mockData['/site'],
+      custom['/site'] || {}
     )
   })
 
-  router.get('/md/info/user', ctx => {
+  router.get('/user', ctx => {
     ctx.body = Object.assign(
       {},
-      mockData['/md/info/user'],
-      custom['/md/info/user'] || {}
+      mockData['/user'],
+      custom['/user'] || {}
     )
   })
 

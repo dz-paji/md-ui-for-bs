@@ -6,19 +6,59 @@ let browser
 let page
 let unmock
 
+before(async () => {
+  browser = await puppeteer.launch()
+})
+
+after(async () => {
+  await browser.close()
+})
+
+describe('User > Left-side drawer', function () {
+  this.timeout(0)
+
+  beforeEach(async () => {
+    page = await browser.newPage()
+  })
+
+  afterEach(async () => {
+    await page.close()
+    await unmock()
+  })
+
+  it('should show avatar and role', async () => {
+    unmock = mock()
+    await page.goto('http://localhost:3000')
+
+    const avatarSrc = await page.evaluate(() => {
+      return document.querySelector('.user-view > img').getAttribute('src')
+    })
+    expect(avatarSrc).to.equal('/img/avatar.png')
+
+    const nickname = await page.evaluate(() => {
+      return document.querySelectorAll('.user-view > span')[0].textContent
+    })
+    expect(nickname).to.equal('gplane')
+
+    let role = await page.evaluate(() => {
+      return document.querySelectorAll('.user-view > span')[1].textContent
+    })
+    expect(role).to.equal('Admin')
+  })
+})
+
 describe('User > Index', function () {
   this.timeout(0)
 
   before(async () => {
     unmock = mock()
-    browser = await puppeteer.launch()
     page = await browser.newPage()
     await page.setViewport({ width: 1920, height: 1080 })
     await page.goto('http://localhost:3000')
   })
 
   after(() => {
-    browser.close()
+    page.close()
     unmock()
   })
 

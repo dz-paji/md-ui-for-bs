@@ -1,8 +1,8 @@
 module.exports = {
-  '/md/info/site': {
+  '/site': {
     siteName: 'Blessing Skin Server',
     theme: '#027be3',
-    locale: 'zh_CN',
+    locale: 'en',
     customCopyright: 'Material Design Test',
     bsCopyright: 'Powered by Blessing Skin Server',
     menu: { user: [] },
@@ -17,7 +17,7 @@ module.exports = {
     },
     allowChinesePlayerName: true
   },
-  '/md/info/user': {
+  '/user': {
     role: 'admin',
     avatar: '/img/avatar.png',
     nickname: 'gplane',

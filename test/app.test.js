@@ -62,12 +62,12 @@ describe('App Appearance', function () {
       ).textContent.trim()
     }
     const currentText = await page.evaluate(getText)
-    expect(currentText).to.equal('公告')
+    expect(currentText).to.equal('Announcement')
 
     await (await page.$('.toolbar > .q-picker-textfield')).click()
-    await (await page.$('.q-select-popover > div > div:nth-child(2)')).click()
+    await (await page.$('.q-select-popover > div > div:nth-child(1)')).click()
 
     const newText = await page.evaluate(getText)
-    expect(newText).to.equal('Announcement')
+    expect(newText).to.equal('公告')
   })
 })
