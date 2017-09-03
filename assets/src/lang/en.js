@@ -809,5 +809,8 @@ export default {
       previews: 'Texture Previews',
       lastModified: 'Last Modified'
     }
+  },
+  other: {
+    notFound: 'Oops. Nothing here...'
   }
 }

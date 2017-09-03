@@ -707,6 +707,9 @@ export default {
       lastModified: '修改时间'
     }
   },
+  other: {
+    notFound: '这里啥都没有哦'
+  },
   vendor: {
     datatables: {
       sProcessing: '处理中...',
