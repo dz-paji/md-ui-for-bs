@@ -260,7 +260,9 @@ export default {
         title: '从衣柜中移除',
         success: '材质已从衣柜中移除',
         nonExistent: '衣柜中不存在此材质'
-      }
+      },
+      clearSkin: '清除皮肤',
+      clearCape: '清除披风'
     },
     player: {
       playerName: '角色名称',

@@ -281,7 +281,9 @@ export default {
         title: 'Remove from closet',
         success: 'Texture was removed from closet successfully.',
         nonExistent: 'The texture does not exist in your closet.'
-      }
+      },
+      clearSkin: 'Clear Skin',
+      clearCape: 'Clear Cape'
     },
     player: {
       playerName: 'Player Name',
@@ -293,8 +295,7 @@ export default {
       addPlayer: 'Add new player',
       loginNotice:
         'Now you can log in with player names you owned instead email address.',
-      playerInfo:
-        'Information (click player name to show preview)',
+      playerInfo: 'Information (click player name to show preview)',
       textures: {
         steve: 'Steve Model：',
         alex: 'Alex Model：',

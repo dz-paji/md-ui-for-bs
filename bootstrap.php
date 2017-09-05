@@ -14,6 +14,8 @@ return function () {
             $route->any('info/site', 'InfoController@siteInfo');
             $route->any('info/user', 'InfoController@userInfo');
             $route->any('info/player', 'InfoController@playerInfo');
+
+            $route->any('avatar/{tid}', 'MiscellaneousController@getAvatar');
         });
     });
 

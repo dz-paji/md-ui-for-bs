@@ -28,6 +28,11 @@ export default new VueRouter({
       meta: { title: 'general.dashboard' }
     },
     {
+      path: '/user/closet',
+      component: load('user/Closet'),
+      meta: { title: 'general.myCloset' }
+    },
+    {
       path: '/user/player',
       component: load('user/Player'),
       meta: { title: 'general.playerManage' }
