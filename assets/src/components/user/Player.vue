@@ -10,6 +10,7 @@
         >
           <template slot="col-player_name" scope="cell">
             <span
+              class="cursor-pointer"
               @click="showPlayerTexture(cell.row.pid)"
             >{{ cell.data }}</span>
           </template>
