@@ -248,7 +248,8 @@ export default {
         button: '使用...',
         title: '要给哪个角色使用呢？',
         empty: '你好像还没有添加任何角色哦',
-        add: '添加角色'
+        add: '添加角色',
+        applyNow: '添加角色后立即应用到该角色'
       },
       add: {
         success: '材质 :name 收藏成功~',

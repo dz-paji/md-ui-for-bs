@@ -2,6 +2,7 @@
 
 namespace GPlane\MD;
 
+use App\Models\Player;
 use App\Models\Texture;
 use App\Http\Controllers\Controller;
 
@@ -26,5 +27,12 @@ class MiscellaneousController extends Controller
         ob_end_clean();
         imagedestroy($png);
         return response($image_data)->header('Content-Type', 'image/png');
+    }
+
+    public function getPlayerId($name)
+    {
+        $player = Player::where('player_name', $name)->first();
+
+        return json(['pid' => $player->pid]);
     }
 }

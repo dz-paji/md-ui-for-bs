@@ -16,6 +16,7 @@ return function () {
             $route->any('info/player', 'InfoController@playerInfo');
 
             $route->any('avatar/{tid}', 'MiscellaneousController@getAvatar');
+            $route->any('player/{name}', 'MiscellaneousController@getPlayerId');
         });
     });
 

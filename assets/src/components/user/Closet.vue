@@ -250,6 +250,59 @@ export default {
               this.$bs('/user/player/set', data)
             }
           }
+        }).concat({
+          label: this.$trans('user.closet.useAs.add'),
+          icon: 'add',
+          handler: () => {
+            Dialog.create({
+              title: this.$trans('user.player.addPlayer'),
+              form: {
+                name: {
+                  type: 'textbox',
+                  label: this.$trans('user.player.playerName'),
+                  placeholder: this.$store.state.site.allowChinesePlayerName
+                    ? this.$trans('user.player.pnameRuleChinese')
+                    : this.$trans('user.player.pnameRule')
+                },
+                applyNow: {
+                  type: 'toggle',
+                  items: [{
+                    label: this.$trans('user.closet.useAs.applyNow'),
+                    value: 'apply',
+                    model: true
+                  }]
+                }
+              },
+              buttons: [
+                {
+                  label: this.$trans('general.confirm'),
+                  handler: async ({ name, applyNow }) => {
+                    await this.$bs(
+                      '/user/player/add',
+                      { player_name: name },
+                      { useToast: false }
+                    )
+                    if (!applyNow.length) {
+                      this.applyToPlayer()
+                    } else {
+                      const newPlayer = {
+                        pid: (await this.$bs(`/md/player/${name}`)).pid,
+                        tid: {}
+                      }
+                      if (this.previewingSkin) {
+                        newPlayer.tid.skin = this.previewingSkin
+                      }
+                      if (this.previewingCape) {
+                        newPlayer.tid.cape = this.previewingCape
+                      }
+                      await this.$bs('/user/player/set', newPlayer)
+                    }
+                  }
+                },
+                { label: this.$trans('general.cancel') }
+              ]
+            })
+          }
         })
       })
     },

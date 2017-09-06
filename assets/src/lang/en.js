@@ -266,7 +266,8 @@ export default {
         button: 'Apply...',
         title: 'Which player should be applied to?',
         empty: 'It seems that you own no player...',
-        add: 'Add new player'
+        add: 'Add new player',
+        applyNow: 'Apply to this new player after adding it.'
       },
       add: {
         success: 'Added :name to closet successfully~',
