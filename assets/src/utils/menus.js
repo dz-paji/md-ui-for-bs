@@ -14,12 +14,16 @@ const mapping = {
   }
 }
 
+function externalLink (link) {
+  return `/go?dst=${encodeURI(link)}`
+}
+
 export default ({ title, link }) => {
   return title in mapping
     ? mapping[title]
     : {
       title,
       icon: 'polymer',
-      link: `/go?dst=${encodeURI(link)}`
+      link: externalLink(link)
     }
 }
