@@ -819,6 +819,9 @@ export default {
     skinUtilities: {
       menu: 'Skin Utilities',
       title: 'Skin Utilities',
+      converter: 'Convert single-layer skin to double-layer skin',
+      editor1: 'Editor 1',
+      editor2: 'Editor 2',
       notice1: 'Skin conversion tool supports high-definition skin.',
       notice2:
         'Both editing tools do not support HD skin and double-layer skin. If you want to get more powerful skin editing and high-definition skin support, it is recommended to use MCSkin3D.',

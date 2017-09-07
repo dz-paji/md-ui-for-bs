@@ -43,6 +43,11 @@ export default new VueRouter({
       meta: { title: 'general.profile' }
     },
     {
+      path: '/user/skin-utilities',
+      component: load('plugins/user/SkinUtilities'),
+      meta: { title: 'plugins.skinUtilities.title' }
+    },
+    {
       path: '/go',
       beforeEnter: to => {
         window.location = '/' + decodeURI(to.query.dst)
