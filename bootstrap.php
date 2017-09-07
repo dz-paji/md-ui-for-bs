@@ -31,8 +31,8 @@ return function () {
       'GPlane\SkinUtilities::tools'
     ]);
     $third_party_views->each(function ($name) use ($ns) {
-      if (view()->exists($name)) {
-          View::alias($ns.'::main', $name);
-      }
+        if (view()->exists($name)) {
+            View::alias($ns.'::main', $name);
+        }
     });
 };
