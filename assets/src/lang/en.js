@@ -834,5 +834,9 @@ export default {
     configGenerator: {
       menu: 'Config Generator'
     }
+  },
+  vendor: {
+    pickFile: 'Pick File',
+    remove: 'Remove'
   }
 }
