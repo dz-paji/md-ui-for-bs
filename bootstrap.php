@@ -22,6 +22,17 @@ return function () {
 
     // View alias
     View::alias($ns.'::main', 'user.index');
+    View::alias($ns.'::main', 'user.closet');
     View::alias($ns.'::main', 'user.player');
     View::alias($ns.'::main', 'user.profile');
+
+    // View alias for 3rd plugins
+    $third_party_views = collect([
+      'GPlane\SkinUtilities::tools'
+    ]);
+    $third_party_views->each(function ($name) use ($ns) {
+      if (view()->exists($name)) {
+          View::alias($ns.'::main', $name);
+      }
+    });
 };
