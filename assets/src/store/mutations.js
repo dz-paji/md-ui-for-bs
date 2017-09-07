@@ -1,3 +1,5 @@
+import transformMenu from '../utils/menus'
+
 export default {
   updateSiteInfo (state, info) {
     const menu = info.menu
@@ -18,11 +20,7 @@ export default {
     ]
     for (let i = 0; i < menu.user.length; i++) {
       if (!menu.user[i].title.startsWith('general')) {
-        state.menu.user.splice(i, 0, {
-          title: menu.user[i].title,
-          icon: 'polymer',
-          link: `/go?dst=${encodeURI(menu.user[i].link)}`
-        })
+        state.menu.user.splice(i, 0, transformMenu(menu.user[i]))
       }
     }
     delete info.menu

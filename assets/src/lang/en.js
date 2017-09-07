@@ -814,5 +814,22 @@ export default {
   },
   other: {
     notFound: 'Oops. Nothing here...'
+  },
+  plugins: {
+    skinUtilities: {
+      menu: 'Skin Utilities',
+      title: 'Skin Utilities',
+      notice1: 'Skin conversion tool supports high-definition skin.',
+      notice2:
+        'Both editing tools do not support HD skin and double-layer skin. If you want to get more powerful skin editing and high-definition skin support, it is recommended to use MCSkin3D.',
+      notice3:
+        'Although I have made some adjustments and adaptation of these tools, these editing tools are not made by me, and I do not provide any support for these tools.'
+    },
+    reportTexture: {
+      userMenu: 'My Reports'
+    },
+    configGenerator: {
+      menu: 'Config Generator'
+    }
   }
 }
