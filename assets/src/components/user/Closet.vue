@@ -314,7 +314,7 @@ export default {
         `&q=${this.search}`
       )
       this.items = items
-      this.totalPages = totalPages
+      this.totalPages = totalPages || 1
       if (this.currentPage > totalPages) {
         this.$refs.pagination.set(totalPages)
       }
