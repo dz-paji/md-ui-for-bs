@@ -1,6 +1,6 @@
 <template>
   <base-skeleton>
-    <div class="row gutter md-column layout-padding">
+    <div class="row gutter sm-column layout-padding">
       <div class="width-1of2">
         <q-data-table
           :data="players"
