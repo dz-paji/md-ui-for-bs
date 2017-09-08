@@ -22,7 +22,7 @@ class InfoController extends Controller
 
         return [
             'siteName' => option('site_name'),
-            'theme' => option('md_theme') ?: '#027be3',
+            'theme' => option('md_theme') ?: '#009688', // Default is #027be3
             'locale' => session('locale'),
             'customCopyright' => bs_custom_copyright(),
             'bsCopyright' => bs_copyright(),
