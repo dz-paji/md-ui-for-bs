@@ -203,7 +203,7 @@ export default {
     timeUnitHour: 'h',
     timeUnitMin: 'min',
     emptyClosetMsg:
-      '<p>Nothing in your closet...</p><p>Why not explore the <a href=":url">Skin Library</a> for a while?</p>',
+      'Nothing in your closet...Why not explore the Skin Library for a while?',
     renameItem: 'Rename item',
     removeItem: 'Remove from closet',
     setAsAvatar: 'Set as avatar',

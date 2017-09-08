@@ -192,7 +192,7 @@ export default {
     signRemainingTime: ':time :unit 后可签到',
     timeUnitHour: '小时',
     timeUnitMin: '分钟',
-    emptyClosetMsg: '<p>衣柜里啥都没有哦~</p><p>去<a href=":url">皮肤库</a>看看吧~</p>',
+    emptyClosetMsg: '衣柜里啥都没有哦~去皮肤库看看吧~',
     renameItem: '重命名物品',
     removeItem: '从衣柜中移除',
     setAsAvatar: '设为头像',

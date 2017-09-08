@@ -21,7 +21,11 @@
           </div>
           <div class="card-content">
             <div>
-              <div v-for="(item, index) in items" :key="item.tid" class="closet-item">
+              <div class="text-center layout-padding" v-if="items.length === 0">
+                <span v-if="search === ''">{{ $trans('user.emptyClosetMsg') }}</span>
+                <span v-else>{{ $trans('general.noResult') }}</span>
+              </div>
+              <div v-else v-for="(item, index) in items" :key="item.tid" class="closet-item">
                 <img
                   :src="`/api/preview/${item.tid}.png`"
                   @click="switchPreview(item.tid, item.type)"
