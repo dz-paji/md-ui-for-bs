@@ -27,7 +27,7 @@
               </div>
               <div v-else v-for="(item, index) in items" :key="item.tid" class="closet-item">
                 <img
-                  :src="`/api/preview/${item.tid}.png`"
+                  :src="texturePreviewUrl(item.tid)"
                   @click="switchPreview(item.tid, item.type)"
                   class="cursor-pointer"
                 />
