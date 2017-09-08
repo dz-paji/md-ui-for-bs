@@ -145,65 +145,70 @@ export default {
       this[`previewing${type === 'cape' ? 'Cape' : 'Skin'}`] = tid
     },
     showActionsSheet (tid) {
-      ActionSheet.create({
-        actions: [
-          {
-            label: this.$trans('user.viewInSkinlib'),
-            icon: 'find_in_page',
-            handler: () => this.$router.push(
-              '/go?dst=' +
-              encodeURI(`/skinlib/show/${tid}`)
-            )
-          },
-          {
-            label: this.$trans('user.renameItem'),
-            icon: 'create',
-            handler: () => this.readyToRename(
-              this.items.findIndex(item => item.tid === tid)
-            )
-          },
-          {
-            label: this.$trans('user.removeItem'),
-            icon: 'delete',
-            handler: () => {
-              Dialog.create({
-                message: this.$trans('user.removeFromClosetNotice'),
-                buttons: [
-                  {
-                    label: this.$trans('general.confirm'),
-                    handler: () => {
-                      this.$bs('/user/closet/remove', { tid }).then(() => {
-                        this.items = this.items.filter(item => item.tid !== tid)
-                      })
-                    }
-                  },
-                  { label: this.$trans('general.cancel') }
-                ]
-              })
-            }
-          },
-          {
-            label: this.$trans('user.setAsAvatar'),
-            icon: 'account_circle',
-            handler: () => {
-              Dialog.create({
-                title: this.$trans('user.setAsAvatar'),
-                message: this.$trans('user.setAvatarNotice'),
-                buttons: [
-                  {
-                    label: this.$trans('general.confirm'),
-                    handler: async () => {
-                      await this.$bs('/user/profile/avatar', { tid })
-                      const userInfo = await this.$bs('/md/info/user')
-                      this.$store.commit('updateUserInfo', userInfo)
-                    }
-                  },
-                  { label: this.$trans('general.cancel') }
-                ]
-              })
-            }
+      const actions = [
+        {
+          label: this.$trans('user.viewInSkinlib'),
+          icon: 'find_in_page',
+          handler: () => this.$router.push(
+            '/go?dst=' +
+            encodeURI(`/skinlib/show/${tid}`)
+          )
+        },
+        {
+          label: this.$trans('user.renameItem'),
+          icon: 'create',
+          handler: () => this.readyToRename(
+            this.items.findIndex(item => item.tid === tid)
+          )
+        },
+        {
+          label: this.$trans('user.removeItem'),
+          icon: 'delete',
+          handler: () => {
+            Dialog.create({
+              message: this.$trans('user.removeFromClosetNotice'),
+              buttons: [
+                {
+                  label: this.$trans('general.confirm'),
+                  handler: () => {
+                    this.$bs('/user/closet/remove', { tid }).then(() => {
+                      this.items = this.items.filter(item => item.tid !== tid)
+                    })
+                  }
+                },
+                { label: this.$trans('general.cancel') }
+              ]
+            })
           }
-        ]
+        }
+      ]
+
+      if (this.category === 'skin') {
+        actions.push({
+          label: this.$trans('user.setAsAvatar'),
+          icon: 'account_circle',
+          handler: () => {
+            Dialog.create({
+              title: this.$trans('user.setAsAvatar'),
+              message: this.$trans('user.setAvatarNotice'),
+              buttons: [
+                {
+                  label: this.$trans('general.confirm'),
+                  handler: async () => {
+                    await this.$bs('/user/profile/avatar', { tid })
+                    const userInfo = await this.$bs('/md/info/user')
+                    this.$store.commit('updateUserInfo', userInfo)
+                  }
+                },
+                { label: this.$trans('general.cancel') }
+              ]
+            })
+          }
+        })
+      }
+
+      ActionSheet.create({
+        actions
       })
     },
     readyToRename (index) {
