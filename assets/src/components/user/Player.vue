@@ -152,7 +152,10 @@ export default {
       return {
         title: this.$trans('general.playerManage'),
         rowHeight: '50px',
-        refresh: true
+        refresh: true,
+        messages: {
+          noData: this.$trans('user.player.noPlayersData')
+        }
       }
     },
     columns () {

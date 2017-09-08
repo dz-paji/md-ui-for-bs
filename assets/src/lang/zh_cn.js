@@ -292,7 +292,8 @@ export default {
       rename: { repeated: '此角色名已被他人使用，换一个吧~', success: '角色 :old 已更名为 :new' },
       set: { success: '材质已成功应用至角色 :name' },
       clear: { success: '角色 :name 的材质已被成功重置' },
-      preference: { title: '优先模型', success: '角色 :name 的优先模型已更改至 :preference' }
+      preference: { title: '优先模型', success: '角色 :name 的优先模型已更改至 :preference' },
+      noPlayersData: '一个角色也没有。不妨新建一个？'
     },
     profile: {
       avatar: {

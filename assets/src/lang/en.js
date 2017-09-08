@@ -323,7 +323,8 @@ export default {
       preference: {
         title: 'Preference',
         success: 'The preference of player :name was updated to :preference'
-      }
+      },
+      noPlayersData: 'No players to be showed. How about adding a new one?'
     },
     profile: {
       avatar: {
