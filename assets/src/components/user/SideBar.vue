@@ -11,13 +11,13 @@
       </div>
       <hr>
       <div class="list-label">{{ $trans('general.explore') }}</div>
-      <q-drawer-link icon="camera" to="/skinlib">
+      <q-drawer-link icon="camera" to="/go?dst=/skinlib">
         {{ $trans('general.skinlib') }}
       </q-drawer-link>
       <div v-if="$store.getters.isAdmin">
         <hr>
         <div class="list-label">{{ $trans('general.manage') }}</div>
-        <q-drawer-link icon="build" to="/admin">
+        <q-drawer-link icon="build" to="/go?dst=/admin">
           {{ $trans('general.adminPanel') }}
         </q-drawer-link>
       </div>

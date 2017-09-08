@@ -50,7 +50,7 @@ export default new VueRouter({
     {
       path: '/go',
       beforeEnter: to => {
-        window.location = '/' + decodeURI(to.query.dst)
+        window.location.pathname = decodeURI(to.query.dst)
       }
     },
     { path: '*', component: load('Error404') } // Not found

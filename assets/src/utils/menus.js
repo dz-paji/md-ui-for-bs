@@ -6,11 +6,13 @@ const mapping = {
   },
   '我的举报': {
     title: 'plugins.reportTexture.userMenu',
-    icon: 'add_alert'
+    icon: 'add_alert',
+    link: externalLink('/user/report')
   },
   'Blessing\\ConfigGenerator::config.generate-config': {
     title: 'plugins.configGenerator.menu',
-    icon: 'tune'
+    icon: 'tune',
+    link: externalLink('/user/config')
   }
 }
 
