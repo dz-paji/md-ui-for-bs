@@ -1,9 +1,9 @@
 <template>
   <div class="footer-text-bar" :style="themeColor">
-    <span v-html="$store.state.site.customCopyright"></span>
+    <span v-html="customCopyright"></span>
     <span
-      class="text-float-right lt-md-hide"
-      v-html="$store.state.site.bsCopyright"
+      class="pull-right lt-md-hide"
+      v-html="bsCopyright"
     ></span>
   </div>
 </template>
@@ -13,6 +13,18 @@ export default {
   computed: {
     themeColor () {
       return { 'background-color': this.$store.state.site.theme }
+    },
+    customCopyright () {
+      return this.$store.state.site.customCopyright.replace(
+        '<a ',
+        '<a style="color: #fff"'
+      )
+    },
+    bsCopyright () {
+      return this.$store.state.site.bsCopyright.replace(
+        '<a ',
+        '<a style="color: #fff"'
+      )
     }
   }
 }
@@ -21,7 +33,4 @@ export default {
 <style lang="stylus" scoped>
 .footer-text-bar
   padding 7px 15px 7px 15px
-
-  .text-float-right
-    float right
 </style>
