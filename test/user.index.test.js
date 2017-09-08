@@ -31,17 +31,21 @@ describe('User > Left-side drawer', function () {
     await page.goto('http://localhost:3000')
 
     const avatarSrc = await page.evaluate(() => {
-      return document.querySelector('.user-view > img').getAttribute('src')
+      return document
+        .querySelector('.user-view > .row > .width-1of3 > img')
+        .getAttribute('src')
     })
     expect(avatarSrc).to.equal('/img/avatar.png')
 
     const nickname = await page.evaluate(() => {
-      return document.querySelectorAll('.user-view > span')[0].textContent
+      return document.querySelectorAll('.user-view > .row > .auto > div')[0]
+        .textContent
     })
     expect(nickname).to.equal('gplane')
 
     let role = await page.evaluate(() => {
-      return document.querySelectorAll('.user-view > span')[1].textContent
+      return document.querySelectorAll('.user-view > .row > .auto > div')[1]
+        .textContent
     })
     expect(role).to.equal('Admin')
   })
@@ -66,7 +70,7 @@ describe('User > Index', function () {
     const announcement = await page.evaluate(() => {
       return document.querySelector(
         '#q-app > div > div.layout-content > div.layout-view > div >' +
-        'div.auto > div > div.card-content > div'
+          'div.auto > div > div.card-content > div'
       ).innerHTML
     })
     expect(announcement).to.equal('<p><s>Just for test!</s></p>\n')
