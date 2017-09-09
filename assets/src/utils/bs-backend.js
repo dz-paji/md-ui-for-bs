@@ -37,7 +37,7 @@ export default {
     }
 
     Vue.prototype.$bsLink = function (uri) {
-      return (process.env.NODE_ENV === 'development' ? '/api' : '/') + uri
+      return (process.env.NODE_ENV === 'development' ? '/api' : '') + uri
     }
   }
 }
