@@ -830,7 +830,13 @@ export default {
         'Although I have made some adjustments and adaptation of these tools, these editing tools are not made by me, and I do not provide any support for these tools.'
     },
     reportTexture: {
-      userMenu: 'My Reports'
+      userSide: 'My Reports',
+      reason: 'Reason',
+      status: 'Status',
+      reportTime: 'Reporting Time',
+      reportPending: 'Pending',
+      reportResolved: 'Resolved',
+      reportRejected: 'Rejected'
     },
     configGenerator: {
       menu: 'Config Generator'
@@ -838,6 +844,7 @@ export default {
   },
   vendor: {
     pickFile: 'Pick File',
-    remove: 'Remove'
+    remove: 'Remove',
+    noData: 'No data'
   }
 }

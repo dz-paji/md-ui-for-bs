@@ -17,6 +17,9 @@ return function () {
 
             $route->any('avatar/{tid}', 'MiscellaneousController@getAvatar');
             $route->any('player/{name}', 'MiscellaneousController@getPlayerId');
+
+            // For plugins
+            $route->any('info/user-report', 'InfoController@userReport');
         });
     });
 
@@ -28,7 +31,8 @@ return function () {
 
     // View alias for 3rd plugins
     $third_party_views = collect([
-      'GPlane\SkinUtilities::tools'
+      'GPlane\SkinUtilities::tools',
+      'Blessing\Report::report'
     ]);
     $third_party_views->each(function ($name) use ($ns) {
         if (view()->exists($name)) {

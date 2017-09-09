@@ -48,6 +48,11 @@ export default new VueRouter({
       meta: { title: 'plugins.skinUtilities.title' }
     },
     {
+      path: '/user/report',
+      component: load('plugins/user/UserReport'),
+      meta: { title: 'plugins.reportTexture.userSide' }
+    },
+    {
       path: '/go',
       beforeEnter: to => {
         window.location.pathname = decodeURI(to.query.dst)

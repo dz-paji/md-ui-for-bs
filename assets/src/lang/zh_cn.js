@@ -726,7 +726,13 @@ export default {
       notice3: '虽然我对这些工具进行了一定的调整和适配，但这些编辑工具都不是我做的，因此我不提供有关这些工具的修复或功能添加。'
     },
     reportTexture: {
-      userMenu: '我的举报'
+      userSide: '我的举报',
+      reason: '原因',
+      status: '状态',
+      reportTime: '举报时间',
+      reportPending: '正在处理',
+      reportResolved: '处理完毕',
+      reportRejected: '已被拒绝'
     },
     configGenerator: {
       menu: '配置生成'
@@ -734,6 +740,7 @@ export default {
   },
   vendor: {
     pickFile: '选择文件',
-    remove: '移除'
+    remove: '移除',
+    noData: '无数据'
   }
 }

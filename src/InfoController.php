@@ -4,6 +4,7 @@ namespace GPlane\MD;
 
 use App\Models\User;
 use Illuminate\Support\Arr;
+use App\Services\PluginManager;
 use App\Http\Controllers\Controller;
 use App\Services\Repositories\UserRepository;
 
@@ -82,5 +83,18 @@ class InfoController extends Controller
             ->players
             ->makeHidden(['last_modified'])
             ->toArray();
+    }
+
+    public function userReport(PluginManager $plugins) {
+        if (
+          !$plugins->getPlugin('report-texture') ||
+          !$plugins->getPlugin('report-texture')->isEnabled()) {
+            return [];
+        }
+
+        return \Blessing\Report\Report::where(
+            'reporter',
+            app('user.current')->uid
+        )->get();
     }
 }

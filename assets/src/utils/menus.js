@@ -5,9 +5,9 @@ const mapping = {
     link: '/user/skin-utilities'
   },
   '我的举报': {
-    title: 'plugins.reportTexture.userMenu',
-    icon: 'add_alert',
-    link: externalLink('/user/report')
+    title: 'plugins.reportTexture.userSide',
+    icon: 'feedback',
+    link: '/user/report'
   },
   'Blessing\\ConfigGenerator::config.generate-config': {
     title: 'plugins.configGenerator.menu',
