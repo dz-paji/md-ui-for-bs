@@ -53,6 +53,11 @@ export default new VueRouter({
       meta: { title: 'plugins.reportTexture.userSide' }
     },
     {
+      path: '/user/config',
+      component: load('plugins/user/ConfigGenerator'),
+      meta: { title: 'plugins.configGenerator.title' }
+    },
+    {
       path: '/go',
       beforeEnter: to => {
         window.location.pathname = decodeURI(to.query.dst)

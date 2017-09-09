@@ -735,7 +735,8 @@ export default {
       reportRejected: '已被拒绝'
     },
     configGenerator: {
-      menu: '配置生成'
+      title: '配置生成',
+      extraListNotice: 'ExtraList 是 CustomSkinLoader（14.4 以上版本）提供的快捷添加皮肤站功能。不需要任何繁琐的配置修改，您只需要下载下面提供的 ExtraList 文件，放入 .minecraft/CustomSkinLoader/ExtraList 目录下并重启游戏即可。'
     }
   },
   vendor: {

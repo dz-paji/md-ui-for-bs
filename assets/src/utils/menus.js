@@ -10,9 +10,9 @@ const mapping = {
     link: '/user/report'
   },
   'Blessing\\ConfigGenerator::config.generate-config': {
-    title: 'plugins.configGenerator.menu',
+    title: 'plugins.configGenerator.title',
     icon: 'tune',
-    link: externalLink('/user/config')
+    link: '/user/config'
   }
 }
 

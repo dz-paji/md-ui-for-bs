@@ -839,7 +839,8 @@ export default {
       reportRejected: 'Rejected'
     },
     configGenerator: {
-      menu: 'Config Generator'
+      title: 'Config Generator',
+      extraListNotice: 'ExtraList is a shortcut to add skin site provided by CustomSkinLoader (version 14.4 or above). You do not need any complicated configuration, and only need to download the ExtraList file provided below, then put it into the `.Minecraft/CustomSkinLoader/ExtraList` directory and restart the game.'
     }
   },
   vendor: {

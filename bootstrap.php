@@ -32,7 +32,8 @@ return function () {
     // View alias for 3rd plugins
     $third_party_views = collect([
       'GPlane\SkinUtilities::tools',
-      'Blessing\Report::report'
+      'Blessing\Report::report',
+      'Blessing\ConfigGenerator::config'
     ]);
     $third_party_views->each(function ($name) use ($ns) {
         if (view()->exists($name)) {
