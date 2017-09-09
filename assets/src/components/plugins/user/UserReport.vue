@@ -30,11 +30,13 @@
 
 <script>
 import BaseSkeleton from '../../user/Base'
+import title from '../../../mixins/title'
 
 export default {
   components: {
     BaseSkeleton
   },
+  mixins: [title],
   computed: {
     columns () {
       return [
