@@ -821,6 +821,7 @@ export default {
       menu: 'Skin Utilities',
       title: 'Skin Utilities',
       converter: 'Convert single-layer skin to double-layer skin',
+      converterNotice: 'Please convert twice because of unknown reason.',
       editor1: 'Editor 1',
       editor2: 'Editor 2',
       notice1: 'Skin conversion tool supports high-definition skin.',

@@ -719,6 +719,7 @@ export default {
       menu: '皮肤工具',
       title: '皮肤编辑实用工具',
       converter: '单层皮肤转双层',
+      converterNotice: '由于未知原因，请转换两次。',
       editor1: '皮肤编辑工具（一）',
       editor2: '皮肤编辑工具（二）',
       notice1: '皮肤转换工具支持高清皮肤。',
