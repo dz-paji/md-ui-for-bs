@@ -1,10 +1,6 @@
 <template>
   <q-layout>
-    <app-bar
-      slot="header"
-      class="toolbar"
-      @openDrawer="openDrawer"
-    ></app-bar>
+    <app-bar slot="header" class="toolbar" @openDrawer="openDrawer"></app-bar>
 
     <side-bar ref="sideBar" />
 
