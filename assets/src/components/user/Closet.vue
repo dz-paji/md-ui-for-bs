@@ -120,17 +120,13 @@ export default {
       if (!this.previewingSkin) {
         return null
       }
-      return (process.env.NODE_ENV === 'development'
-        ? '/api'
-        : '') + `/raw/${this.previewingSkin}.png`
+      return this.$bsLink(`/raw/${this.previewingSkin}.png`)
     },
     rawCapeUrl () {
       if (!this.previewingCape) {
         return null
       }
-      return (process.env.NODE_ENV === 'development'
-        ? '/api'
-        : '') + `/raw/${this.previewingCape}.png`
+      return this.$bsLink(`/raw/${this.previewingCape}.png`)
     },
     qSelectOptions () {
       return [
@@ -141,9 +137,7 @@ export default {
   },
   methods: {
     texturePreviewUrl (tid) {
-      return (process.env.NODE_ENV === 'development'
-        ? '/api'
-        : '') + `/preview/${tid}.png`
+      return this.$bsLink(`/preview/${tid}.png`)
     },
     switchPreview (tid, type) {
       this[`previewing${type === 'cape' ? 'Cape' : 'Skin'}`] = tid
@@ -245,9 +239,9 @@ export default {
           const { preference, tid_steve: steve, tid_alex: alex } = player
           return {
             label: player.player_name,
-            avatar: (process.env.NODE_ENV === 'development' ? '/api' : '') +
-              '/md/avatar/' +
-              (preference === 'default' ? steve : alex),
+            avatar: this.$bsLink(
+              '/md/avatar/' + (preference === 'default' ? steve : alex)
+              ),
             handler: () => {
               const data = { pid: player.pid, tid: {} }
               if (this.previewingSkin) {

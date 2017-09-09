@@ -124,29 +124,25 @@ export default {
       if (!this.selected.skin) {
         return null
       }
-      return (process.env.NODE_ENV === 'development' ? '/api' : '') +
-        `/raw/${this.selected.skin}.png`
+      return this.$bsLink(`/raw/${this.selected.skin}.png`)
     },
     steveUrl () {
       if (!this.selected.steve) {
         return ''
       }
-      return (process.env.NODE_ENV === 'development' ? '/api' : '') +
-        `/raw/${this.selected.steve}.png`
+      return this.$bsLink(`/raw/${this.selected.steve}.png`)
     },
     alexUrl () {
       if (!this.selected.alex) {
         return ''
       }
-      return (process.env.NODE_ENV === 'development' ? '/api' : '') +
-        `/raw/${this.selected.alex}.png`
+      return this.$bsLink(`/raw/${this.selected.alex}.png`)
     },
     capeUrl () {
       if (!this.selected.cape) {
         return ''
       }
-      return (process.env.NODE_ENV === 'development' ? '/api' : '') +
-        `/raw/${this.selected.cape}.png`
+      return this.$bsLink(`/raw/${this.selected.cape}.png`)
     },
     config () {
       return {

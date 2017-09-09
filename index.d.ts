@@ -12,5 +12,6 @@ declare module 'vue/types/vue' {
         useToast? = true
       }
     ): Promise<{ errno: number, msg: string }>
+    $bsLink (uri: string): string
   }
 }
