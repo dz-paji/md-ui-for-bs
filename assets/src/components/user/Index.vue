@@ -26,8 +26,8 @@
                   {{ $trans('user.used.storage') }}
                   <span class="progress-number">
                     <span v-if="storageUsed > 1024">
-                      <b>{{ round(storageUsed) }}</b>
-                      / {{ round(storageTotal) }} MB
+                      <b>{{ (storageUsed / 1024).toFixed(2) }}</b>
+                      / {{ (storageTotal / 1024).toFixed(2) }} MB
                     </span>
                     <span v-else>
                       <b>{{ storageUsed }}</b>
