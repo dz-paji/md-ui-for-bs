@@ -260,9 +260,12 @@ export default {
             Dialog.create({
               title: this.$trans('user.player.addPlayer'),
               form: {
+                heading: {
+                  type: 'heading',
+                  label: this.$trans('user.player.playerName')
+                },
                 name: {
                   type: 'textbox',
-                  label: this.$trans('user.player.playerName'),
                   placeholder: this.$store.state.site.allowChinesePlayerName
                     ? this.$trans('user.player.pnameRuleChinese')
                     : this.$trans('user.player.pnameRule')
