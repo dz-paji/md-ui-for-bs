@@ -11,8 +11,8 @@ return function () {
             'middleware' => ['web', 'auth'],
             'namespace' => $ns
         ], function ($route) {
-            $route->any('info/site', 'InfoController@siteInfo');
-            $route->any('info/user', 'InfoController@userInfo');
+            $route->any('info/basic', 'InfoController@basicInfo');
+            $route->any('info/user-index', 'InfoController@userIndexPage');
             $route->any('info/player', 'InfoController@playerInfo');
 
             $route->any('avatar/{tid}', 'MiscellaneousController@getAvatar');

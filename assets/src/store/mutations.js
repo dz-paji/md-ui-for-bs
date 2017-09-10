@@ -1,9 +1,7 @@
 import transformMenu from '../utils/menus'
 
 export default {
-  updateSiteInfo (state, info) {
-    const menu = info.menu
-
+  updateMenu (state, menu) {
     state.menu.user = [
       { title: 'general.dashboard', icon: 'dashboard', link: '/user' },
       { title: 'general.myCloset', icon: 'face', link: '/user/closet' },
@@ -67,11 +65,11 @@ export default {
         state.menu.admin.splice(i, 0, transformMenu(menu.admin[i]))
       }
     }
-
-    delete info.menu
+  },
+  updateSite (state, info) {
     state.site = Object.assign(state.site, info)
   },
-  updateUserInfo (state, info) {
+  updateUser (state, info) {
     state.user = Object.assign(state.user, info)
   },
   changeLocale (state, locale) {

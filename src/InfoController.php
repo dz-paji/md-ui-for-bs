@@ -12,7 +12,7 @@ use App\Services\Repositories\UserRepository;
 
 class InfoController extends Controller
 {
-    public function siteInfo()
+    public function basicInfo(UserRepository $users)
     {
         $menu = config('menu');
         \Event::fire(new \App\Events\ConfigureUserMenu($menu));
@@ -21,35 +21,7 @@ class InfoController extends Controller
             throw new InvalidArgumentException;
         }
 
-        list($from, $to) = explode(',', option('sign_score'));
-
-        return [
-            'siteName' => option('site_name'),
-            'siteUrl' => option('site_url'),
-            'theme' => option('md_theme') ?: '#009688', // Default is #027be3
-            'locale' => session('locale'),
-            'customCopyright' => bs_custom_copyright(),
-            'bsCopyright' => bs_copyright(),
-            'menu' => $menu,
-            'announcement' => option('announcement'),
-            'score' => [
-                'init' => option('user_initial_score'),
-                'from' => $from,
-                'to' => $to,
-                'isReturn' => option('return_score'),
-                'perStorage' => option('score_per_storage'),
-                'perPlayer' => option('score_per_player')
-            ],
-            'allowChinesePlayerName' => option('allow_chinese_playername')
-        ];
-    }
-
-    public function userInfo(UserRepository $users)
-    {
         $user = $users->getCurrentUser();
-
-        $remaining_time = $user->getSignRemainingTime() / 3600;
-
         $roles = [
             User::NORMAL => 'normal',
             User::BANNED => 'banned',
@@ -58,9 +30,33 @@ class InfoController extends Controller
         ];
 
         return [
-            'role' => Arr::get($roles, $user->getPermission()),
-            'avatar' => avatar($user, 64),
-            'nickname' => $user->nickname ?: $user->email,
+            'menu' => $menu,
+            'site' => [
+                'siteName' => option('site_name'),
+                'siteUrl' => option('site_url'),
+                'theme' => option('md_theme') ?: '#009688', // Default is #027be3
+                'locale' => session('locale'),
+                'customCopyright' => bs_custom_copyright(),
+                'bsCopyright' => bs_copyright(),
+                'allowChinesePlayerName' => option('allow_chinese_playername')
+            ],
+            'user' => [
+                'role' => Arr::get($roles, $user->getPermission()),
+                'avatar' => avatar($user, 64),
+                'nickname' => $user->nickname ?: $user->email
+            ]
+        ];
+    }
+
+    public function userIndexPage(UserRepository $users)
+    {
+        $user = $users->getCurrentUser();
+
+        list($from, $to) = explode(',', option('sign_score'));
+
+        $remaining_time = $user->getSignRemainingTime() / 3600;
+
+        return [
             'score' => $user->getScore(),
             'canSign' => $user->canSign(),
             'canSignRemainingTime' => $remaining_time > 1
@@ -75,7 +71,16 @@ class InfoController extends Controller
                 'used' => intval($user->getStorageUsed()),
                 'total' => $user->getStorageUsed()
                     + floor($user->getScore() / option('score_per_storage'))
-            ]
+            ],
+            'scoreRule' => [
+                'init' => option('user_initial_score'),
+                'from' => $from,
+                'to' => $to,
+                'isReturn' => option('return_score'),
+                'perStorage' => option('score_per_storage'),
+                'perPlayer' => option('score_per_player')
+            ],
+            'announcement' => option('announcement')
         ];
     }
 

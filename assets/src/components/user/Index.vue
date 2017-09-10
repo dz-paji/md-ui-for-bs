@@ -13,12 +13,12 @@
                 <div>
                   {{ $trans('user.used.players') }}
                   <span class="progress-number">
-                    <b>{{ playersUsed }}</b>
-                     / {{ playersTotal }}
+                    <b>{{ playersUsage.used }}</b>
+                     / {{ playersUsage.total }}
                   </span>
                 </div>
                 <q-progress
-                  :percentage="$store.getters.getPlayersPercentage"
+                  :percentage="getPlayersPercentage"
                   class="info"
                 ></q-progress>
 
@@ -30,13 +30,13 @@
                       / {{ (storageTotal / 1024).toFixed(2) }} MB
                     </span>
                     <span v-else>
-                      <b>{{ storageUsed }}</b>
-                      / {{ storageTotal }} KB
+                      <b>{{ storageUsage.used }}</b>
+                      / {{ storageUsage.total }} KB
                     </span>
                   </span>
                 </div>
                 <q-progress
-                  :percentage="$store.getters.getStoragePercentage"
+                  :percentage="getStoragePercentage"
                   class="warning"
                 ></q-progress>
 
@@ -69,7 +69,7 @@
             {{ $trans('user.announcement') }}
           </div>
           <div class="card-content">
-            <vue-markdown :source="$store.state.site.announcement"></vue-markdown>
+            <vue-markdown :source="announcement"></vue-markdown>
           </div>
         </div>
       </div>
@@ -78,7 +78,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import { Dialog } from 'quasar'
 import VueMarkdown from 'vue-markdown'
 import BaseSkeleton from './Base'
@@ -95,7 +94,7 @@ export default {
       if (this.canSign) {
         return this.$trans('user.sign')
       } else {
-        const remain = this.$store.state.user.canSignRemainingTime
+        const remain = this.canSignRemainingTime
         return this.$trans('user.signRemainingTime', remain >= 1
           ? { time: remain.toString(), unit: this.$trans('user.timeUnitHour') }
           : {
@@ -104,35 +103,25 @@ export default {
           })
       }
     },
-    ...mapState({
-      playersUsed: state => state.user.playersUsage.used,
-      playersTotal: state => state.user.playersUsage.total,
-      storageUsed: state => state.user.storageUsage.used,
-      storageTotal: state => state.user.storageUsage.total,
-      score: state => state.user.score,
-      canSign: state => state.user.canSign
-    })
+    getPlayersPercentage () {
+      return this.playersUsage.used / this.playersUsage.total * 100
+    },
+    getStoragePercentage () {
+      return this.storageUsage.used / this.storageUsage.total * 100
+    }
   },
   methods: {
     async sign () {
-      this.$bs(
-        '/user/sign',
-        {},
-        {
-          success: result => this.$store.commit(
-            'updateUserInfo',
-            {
-              storageUsage: {
-                used: result.storage.used,
-                total: result.storage.total
-              },
-              score: result.score,
-              canSign: false,
-              canSignRemainingTime: result.remaining_time
-            }
-          )
-        }
-      )
+      const {
+        score,
+        remaining_time: canSignRemainingTime,
+        storage
+      } = await this.$bs('/user/sign', {})
+
+      this.score = score
+      this.canSign = false
+      this.canSignRemainingTime = canSignRemainingTime
+      this.storageUsage = storage
     },
     showScoreIntro () {
       Dialog.create({
@@ -140,24 +129,59 @@ export default {
         message: this.$trans(
           'user.scoreIntro.introduction',
           {
-            returnScore: this.$store.state.site.score.isReturn
+            returnScore: this.scoreRule.isReturn
               ? this.$trans('user.scoreIntro.willReturnScore')
               : this.$trans('user.scoreIntro.noReturnScore'),
-            initialScore: this.$store.state.site.score.init,
-            scoreFrom: this.$store.state.site.score.from,
-            scoreTo: this.$store.state.site.score.to
+            initialScore: this.scoreRule.init,
+            scoreFrom: this.scoreRule.from,
+            scoreTo: this.scoreRule.to
           }
         ) + ' Note: ' +
         this.$trans(
           'user.scoreIntro.rates.storage',
-          { score: this.$store.state.site.score.perStorage }
+          { score: this.scoreRule.perStorage }
         ) + ', ' +
         this.$trans(
           'user.scoreIntro.rates.player',
-          { score: this.$store.state.site.score.perPlayer }
+          { score: this.scoreRule.perPlayer }
         )
       })
     }
+  },
+  data () {
+    return {
+      score: 0,
+      canSign: true,
+      canSignRemainingTime: 0,
+      playersUsage: { used: 0, total: 0 },
+      storageUsage: { used: 0, total: 0 },
+      announcement: '',
+      scoreRule: {
+        init: 0,
+        from: 0,
+        to: 0,
+        isReturn: false,
+        perStorage: 0,
+        perPlayer: 0
+      }
+    }
+  },
+  async beforeMount () {
+    const {
+      score,
+      canSign,
+      canSignRemainingTime,
+      playersUsage,
+      storageUsage,
+      announcement
+    } = await this.$bs('/md/info/user-index')
+
+    this.score = score
+    this.canSign = canSign
+    this.canSignRemainingTime = canSignRemainingTime
+    this.playersUsage = playersUsage
+    this.storageUsage = storageUsage
+    this.announcement = announcement
   }
 }
 </script>

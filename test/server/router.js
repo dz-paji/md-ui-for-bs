@@ -5,19 +5,19 @@ module.exports = custom => {
   const router = new Router({
     prefix: '/md/info'
   })
-  router.get('/site', ctx => {
+  router.get('/basic', ctx => {
     ctx.body = Object.assign(
       {},
-      mockData['/site'],
-      custom['/site'] || {}
+      mockData['/basic'],
+      custom['/basic'] || {}
     )
   })
 
-  router.get('/user', ctx => {
+  router.get('/user-index', ctx => {
     ctx.body = Object.assign(
       {},
-      mockData['/user'],
-      custom['/user'] || {}
+      mockData['/user-index'],
+      custom['/user-index'] || {}
     )
   })
 
