@@ -5,7 +5,7 @@ module.exports = {
     locale: 'en',
     customCopyright: 'Material Design Test',
     bsCopyright: 'Powered by Blessing Skin Server',
-    menu: { user: [] },
+    menu: { user: [], admin: [] },
     announcement: '~~Just for test!~~',
     score: {
       init: 1000,
