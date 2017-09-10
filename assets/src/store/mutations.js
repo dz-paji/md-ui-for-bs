@@ -23,6 +23,51 @@ export default {
         state.menu.user.splice(i, 0, transformMenu(menu.user[i]))
       }
     }
+
+    state.menu.admin = [
+      { title: 'general.dashboard', icon: 'dashboard', link: '/admin' },
+      {
+        title: 'general.userManage',
+        icon: 'supervisor_account',
+        link: '/admin/users'
+      },
+      {
+        title: 'general.playerManage',
+        icon: 'videogame_asset',
+        link: '/admin/players'
+      },
+      {
+        title: 'general.pluginManage',
+        icon: 'extension',
+        link: '/admin/plugins/manage'
+      },
+      {
+        title: 'general.customize',
+        icon: 'perm_media',
+        link: '/admin/customzie'
+      },
+      {
+        title: 'general.scoreOptions',
+        icon: 'credit_card',
+        link: '/admin/score'
+      },
+      {
+        title: 'general.options',
+        icon: 'settings',
+        link: '/admin/options'
+      },
+      {
+        title: 'general.checkUpdate',
+        icon: 'network_wifi',
+        link: '/admin/update'
+      }
+    ]
+    for (let i = 0; i < menu.admin.length; i++) {
+      if (!menu.admin[i].title.startsWith('general')) {
+        state.menu.admin.splice(i, 0, transformMenu(menu.admin[i]))
+      }
+    }
+
     delete info.menu
     state.site = Object.assign(state.site, info)
   },

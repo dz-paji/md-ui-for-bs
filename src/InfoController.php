@@ -13,8 +13,8 @@ class InfoController extends Controller
     public function siteInfo()
     {
         $menu = config('menu');
-        \Event::fire(true ? new \App\Events\ConfigureUserMenu($menu)
-                                : new \App\Events\ConfigureAdminMenu($menu));
+        \Event::fire(new \App\Events\ConfigureUserMenu($menu));
+        \Event::fire(new \App\Events\ConfigureAdminMenu($menu));
         if (!isset($menu['user'])) {
             throw new InvalidArgumentException;
         }

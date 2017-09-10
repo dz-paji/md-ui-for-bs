@@ -17,7 +17,7 @@
       <div v-if="$store.getters.isAdmin">
         <hr>
         <div class="list-label">{{ $trans('general.manage') }}</div>
-        <q-drawer-link icon="build" to="/go?dst=/admin">
+        <q-drawer-link icon="build" to="/admin">
           {{ $trans('general.adminPanel') }}
         </q-drawer-link>
       </div>

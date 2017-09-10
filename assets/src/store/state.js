@@ -1,6 +1,7 @@
 export default {
   menu: {
-    user: []
+    user: [],
+    admin: []
   },
   site: {
     siteName: '',

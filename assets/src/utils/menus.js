@@ -13,6 +13,22 @@ const mapping = {
     title: 'plugins.configGenerator.title',
     icon: 'tune',
     link: '/user/config'
+  },
+  '文件缓存': {
+    title: 'plugins.profileCache.title',
+    icon: 'cached'
+  },
+  '举报管理': {
+    title: 'plugins.reportTexture.adminSide',
+    icon: 'feedback'
+  },
+  '批量导入': {
+    title: 'plugins.batchImport.title',
+    icon: 'subject'
+  },
+  'GPlane\\PluginsMarket::general.name': {
+    title: 'plugins.pluginsMarket.title',
+    icon: 'shop'
   }
 }
 
