@@ -58,6 +58,11 @@ export default new VueRouter({
       meta: { title: 'plugins.configGenerator.title' }
     },
     {
+      path: '/admin',
+      component: load('admin/Index'),
+      meta: { title: 'general.dashboard' }
+    },
+    {
       path: '/go',
       beforeEnter: to => {
         window.location.pathname = decodeURI(to.query.dst)

@@ -433,7 +433,10 @@ export default {
       totalPlayers: 'Players',
       totalTextures: 'Uploaded Textures',
       diskUsage: 'Disk Usage',
-      overview: 'Overview'
+      activityStatus: 'Activity Status',
+      textureLikesTopTen: 'Texture Likes Top Ten',
+      textureSizeTopTen: 'Texture File Size Top Ten (KB)',
+      textureTypeCount: 'Texture Type Count'
     },
     users: {
       playersCount: { title: 'Players Count' },

@@ -399,7 +399,10 @@ export default {
       totalPlayers: '角色总数',
       totalTextures: '上传材质总数',
       diskUsage: '占用空间大小',
-      overview: '概览'
+      activityStatus: '活动状态',
+      textureLikesTopTen: '材质收藏排行前十',
+      textureSizeTopTen: '材质文件大小排行前十（KB）',
+      textureTypeCount: '材质类型数量'
     },
     users: {
       playersCount: { title: '拥有角色数' },

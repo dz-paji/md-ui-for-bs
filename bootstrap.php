@@ -21,6 +21,14 @@ return function () {
             // For plugins
             $route->any('info/user-report', 'InfoController@userReport');
         });
+
+        $router->group([
+            'prefix' => 'md',
+            'middleware' => ['web', 'auth', 'admin'],
+            'namespace' => $ns
+        ], function ($route) {
+            $route->any('info/admin-panel', 'InfoController@adminPanel');
+        });
     });
 
     // View alias
