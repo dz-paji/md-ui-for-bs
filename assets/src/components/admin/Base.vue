@@ -31,11 +31,12 @@ export default {
     }
   },
   async beforeMount () {
-    this.$bs('/md/info/site').then(
-      data => this.$store.commit('updateSiteInfo', data)
-    )
-    this.$bs('/md/info/user').then(
-      data => this.$store.commit('updateUserInfo', data)
+    this.$bs('/md/info/basic').then(
+      ({ menu, site, user }) => {
+        this.$store.commit('updateMenu', menu)
+        this.$store.commit('updateSite', site)
+        this.$store.commit('updateUser', user)
+      }
     )
   }
 }
