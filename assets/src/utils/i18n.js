@@ -1,4 +1,7 @@
-import lang from '../lang'
+import en from '../../../lang/en.json'
+import zh_CN from '../../../lang/zh_cn.json'  // eslint-disable-line camelcase
+
+const lang = { en, zh_CN }
 
 export default {
   install (Vue) {
