@@ -403,6 +403,9 @@ export default {
     pidNotice:
       'Please enter the tid of texture. Inputting 0 can clear texture of this player.',
     changePlayerTexture: 'Change textures of :player',
+    clearSteve: 'Clear Steve',
+    clearAlex: 'Clear Alex',
+    clearCape: 'Clear Cape',
     changeTexture: 'Change Textures',
     changePlayerName: 'Change Player Name',
     changeOwner: 'Change Owner',

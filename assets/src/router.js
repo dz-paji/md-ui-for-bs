@@ -68,6 +68,11 @@ export default new VueRouter({
       meta: { title: 'general.userManage' }
     },
     {
+      path: '/admin/players',
+      component: load('admin/Players'),
+      meta: { title: 'general.playerManage' }
+    },
+    {
       path: '/go',
       beforeEnter: to => {
         window.location.pathname = decodeURI(to.query.dst)
