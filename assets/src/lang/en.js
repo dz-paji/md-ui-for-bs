@@ -798,6 +798,7 @@ export default {
     textureDeleted: 'The requested texture has been deleted.',
     textureNotUploaded:
       'The user haven not uploaded the texture of :type model yet.',
+    edit: 'Edit',
     operations: 'Operations',
     user: {
       uid: 'UID',
@@ -860,6 +861,12 @@ export default {
   vendor: {
     pickFile: 'Pick File',
     remove: 'Remove',
-    noData: 'No data'
+    noData: 'No data',
+    noFilterData: 'No search result',
+    columns: 'Columns',
+    allCols: 'All Columns',
+    search: 'Search',
+    all: 'All',
+    rows: 'Rows'
   }
 }

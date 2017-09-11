@@ -696,6 +696,7 @@ export default {
     unexistentPlayer: '角色不存在',
     textureDeleted: '请求的材质已被删除',
     textureNotUploaded: '该用户尚未上传请求的材质类型 :type',
+    edit: '编辑',
     operations: '操作',
     user: {
       uid: 'UID',
@@ -756,6 +757,12 @@ export default {
   vendor: {
     pickFile: '选择文件',
     remove: '移除',
-    noData: '无数据'
+    noData: '无数据',
+    noFilterData: '找不到结果',
+    columns: '列',
+    allCols: '所有列',
+    search: '搜索',
+    all: '全部',
+    rows: '每页行数'
   }
 }
