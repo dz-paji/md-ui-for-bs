@@ -73,6 +73,11 @@ export default new VueRouter({
       meta: { title: 'general.playerManage' }
     },
     {
+      path: '/admin/plugins/manage',
+      component: load('admin/Plugins'),
+      meta: { title: 'general.pluginManage' }
+    },
+    {
       path: '/admin/score',
       component: load('admin/Score'),
       meta: { title: 'general.scoreOptions' }
