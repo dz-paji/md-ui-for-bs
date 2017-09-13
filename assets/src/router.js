@@ -73,6 +73,11 @@ export default new VueRouter({
       meta: { title: 'general.playerManage' }
     },
     {
+      path: '/admin/score',
+      component: load('admin/Score'),
+      meta: { title: 'general.scoreOptions' }
+    },
+    {
       path: '/go',
       beforeEnter: to => {
         window.location.pathname = decodeURI(to.query.dst)

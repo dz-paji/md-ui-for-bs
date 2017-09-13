@@ -28,6 +28,9 @@ return function (Request $request) {
                 'middleware' => ['web', 'auth', 'admin']
             ], function ($route) {
                 $route->any('info/admin-panel', 'InfoController@adminPanel');
+
+                $route->get('options/score', 'OptionController@getScoreOptions');
+                $route->post('options/score', 'OptionController@setScoreOptions');
             });
 
             // For plugins
