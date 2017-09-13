@@ -41,7 +41,7 @@ return function (Request $request) {
         });
 
         // Routers Hack
-        $router->any('user', $ns.'\ViewController@UserIndex')
+        $router->any('user', $ns.'\ViewController@userIndex')
             ->middleware(['web', 'auth']);
     });
 };

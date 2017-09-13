@@ -8,7 +8,7 @@ class ViewController extends Controller
 {
     private $ns = 'GPlane\MD::';
 
-    public function UserIndex()
+    public function userIndex()
     {
         return view($this->ns.'main');
     }
