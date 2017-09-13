@@ -47,6 +47,8 @@ class OptionController extends Controller
                 'signGapTime',
                 'signAfterZero'
             ]);
+        } else {
+            return json(['errno' => 1]);
         }
 
         $options->each(function ($option) use ($request) {
