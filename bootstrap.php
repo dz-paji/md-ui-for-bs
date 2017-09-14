@@ -4,10 +4,14 @@ use App\Services\Hook;
 use Illuminate\Http\Request;
 
 return function (Request $request) {
+    // Fallback to AdminLTE if uses IE
     $user_agent = $request->header('user-agent');
     if (str_contains($user_agent, 'MSIE') || str_contains($user_agent, 'Trident')) {
         return;
     }
+
+    // If skin server was installed in sub directory, plugin will exit.
+    if (!preg_match('/^https?:\/\/(?:\w+)(?:\.\w+)*\/?$/i', url('/'))) return;
 
     $ns = 'GPlane\MD';
 
