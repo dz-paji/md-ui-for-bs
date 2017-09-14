@@ -866,6 +866,9 @@
     },
     "profileCache": {
       "title": "Profile Cache"
+    },
+    "importData": {
+      "name": "Import v2 Data"
     }
   },
   "vendor": {

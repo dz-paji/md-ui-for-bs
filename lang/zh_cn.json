@@ -869,6 +869,9 @@
     },
     "profileCache": {
       "title": "Profile 缓存"
+    },
+    "importData": {
+      "name": "导入 v2 数据"
     }
   },
   "vendor": {

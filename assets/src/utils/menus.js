@@ -29,6 +29,11 @@ const mapping = {
   'GPlane\\PluginsMarket::general.name': {
     title: 'plugins.pluginsMarket.title',
     icon: 'shop'
+  },
+  '导入数据': {
+    title: 'plugins.importData.name',
+    icon: 'work',
+    link: externalLink('/setup/migrations')
   }
 }
 
