@@ -16,7 +16,14 @@ class RedirectToMD
             'user/profile',
             'user/config',
             'user/report',
-            'user/skin-utilities'
+            'user/skin-utilities',
+            'admin',
+            'admin/users',
+            'admin/players',
+            'admin/plugins/manage',
+            'admin/customize',
+            'admin/score',
+            'admin/options'
         ];
 
         $path = $request->path();
