@@ -310,8 +310,8 @@ export default {
     }
   },
   methods: {
-    submitGeneral () {
-      this.$bs(
+    async submitGeneral () {
+      await this.$bs(
         '/md/options/site',
         {
           category: 'general',
@@ -329,6 +329,7 @@ export default {
           allowSendingStatistics: this.allowSendingStatistics
         }
       )
+      this.$store.dispatch('fetchSite')
     },
     submitAnnouncement () {
       this.$bs(

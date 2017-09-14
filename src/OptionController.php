@@ -80,8 +80,7 @@ class OptionController extends Controller
                 'homePicUrl',
                 'faviconUrl',
                 'copyrightPrefer',
-                'copyrightText',
-                'mdTheme'
+                'copyrightText'
             ])->each(function ($option) use ($request) {
                 Option::set(snake_case($option), $request->input($option));
             });

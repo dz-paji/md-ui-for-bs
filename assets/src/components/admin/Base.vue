@@ -31,13 +31,7 @@ export default {
     }
   },
   async beforeMount () {
-    this.$bs('/md/info/basic').then(
-      ({ menu, site, user }) => {
-        this.$store.commit('updateMenu', menu)
-        this.$store.commit('updateSite', site)
-        this.$store.commit('updateUser', user)
-      }
-    )
+    this.$store.dispatch('fetchAllBasicInfo')
   }
 }
 </script>

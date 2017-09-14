@@ -272,14 +272,15 @@ export default {
         mdTheme: this.mdThemeValue
       })
     },
-    submitHomepage () {
-      this.$bs('/md/options/customize', {
+    async submitHomepage () {
+      await this.$bs('/md/options/customize', {
         category: 'homepage',
         homePicUrl: this.homePicUrl,
         faviconUrl: this.faviconUrl,
         copyrightPrefer: this.copyrightPrefer,
         copyrightText: this.copyrightText
       })
+      this.$store.dispatch('fetchSite')
     }
   },
   async beforeMount () {
