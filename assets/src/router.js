@@ -78,6 +78,11 @@ export default new VueRouter({
       meta: { title: 'general.pluginManage' }
     },
     {
+      path: '/admin/customize',
+      component: load('admin/Customize'),
+      meta: { title: 'general.customize' }
+    },
+    {
       path: '/admin/score',
       component: load('admin/Score'),
       meta: { title: 'general.scoreOptions' }

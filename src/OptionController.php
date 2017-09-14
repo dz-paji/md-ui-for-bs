@@ -57,4 +57,40 @@ class OptionController extends Controller
 
         return json(['errno' => 0, 'msg' => trans('options.option-saved')]);
     }
+
+    public function getCustomizeOptions()
+    {
+        return collect([
+            'homePicUrl',
+            'faviconUrl',
+            'copyrightPrefer',
+            'copyrightText'
+        ])->map(function ($option) {
+            return [
+                'key' => $option,
+                'value' => Option::get(snake_case($option))
+            ];
+        })->pluck('value', 'key');
+    }
+
+    public function setCustomizeOptions(Request $request)
+    {
+        if ($request->category === 'homepage') {
+            collect([
+                'homePicUrl',
+                'faviconUrl',
+                'copyrightPrefer',
+                'copyrightText',
+                'mdTheme'
+            ])->each(function ($option) use ($request) {
+                Option::set(snake_case($option), $request->input($option));
+            });
+        } elseif ($request->category === 'md') {
+            Option::set('md_theme', $request->input('mdTheme'));
+        } else {
+            return json(['errno' => 1]);
+        }
+
+        return json(['errno' => 0, 'msg' => trans('options.option-saved')]);
+    }
 }

@@ -31,6 +31,8 @@ return function (Request $request) {
 
                 $route->get('options/score', 'OptionController@getScoreOptions');
                 $route->post('options/score', 'OptionController@setScoreOptions');
+                $route->get('options/customize', 'OptionController@getCustomizeOptions');
+                $route->post('options/customize', 'OptionController@setCustomizeOptions');
             });
 
             // For plugins

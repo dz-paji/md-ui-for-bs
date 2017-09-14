@@ -524,21 +524,23 @@
     "customize": {
       "changeColor": {
         "title": "Change theme color",
+        "customRGB": "Custom RGB Value",
+        "reset": "Reset",
         "success": "Theme color updated."
       },
       "colors": {
-        "blue": "Blue (Default)",
-        "blueLight": "Blue Light",
-        "yellow": "Yellow",
-        "yellowLight": "Yellow Light",
-        "green": "Green",
-        "greenLight": "Green Light",
+        "primary": "Modern Blue",
+        "amber": "Amber",
         "purple": "Purple",
-        "purpleLight": "Purple Light",
-        "red": "Red",
-        "redLight": "Red Light",
-        "black": "Black",
-        "blackLight": "Black Light"
+        "orange": "Orange",
+        "pink": "Pink",
+        "negative": "Negative Red",
+        "positive": "Positive Green",
+        "blue": "Blue",
+        "teal": "Teal",
+        "grey": "Grey",
+        "light-blue": "Light Blue",
+        "indigo": "Indigo"
       }
     },
     "plugins": {

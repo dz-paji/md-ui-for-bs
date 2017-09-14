@@ -29,12 +29,15 @@ class InfoController extends Controller
             User::SUPER_ADMIN => 'superAdmin'
         ];
 
+        $md_theme = option('md_theme');
+        if (empty($md_theme)) $md_theme = '#027be3';
+
         return [
             'menu' => $menu,
             'site' => [
                 'siteName' => option('site_name'),
                 'siteUrl' => option('site_url'),
-                'theme' => option('md_theme') ?: '#009688', // Default is #027be3
+                'theme' => $md_theme,
                 'locale' => session('locale'),
                 'customCopyright' => bs_custom_copyright(),
                 'bsCopyright' => bs_copyright(),

@@ -526,21 +526,23 @@
     "customize": {
       "changeColor": {
         "title": "更改配色",
+        "customRGB": "自定义 RGB 数值",
+        "reset": "重置",
         "success": "修改配色成功"
       },
       "colors": {
-        "blue": "蓝色主题（默认）",
-        "blueLight": "蓝色主题 - 白色侧边栏",
-        "yellow": "黄色主题",
-        "yellowLight": "黄色主题 - 白色侧边栏",
-        "green": "绿色主题",
-        "greenLight": "绿色主题 - 白色侧边栏",
-        "purple": "基佬紫",
-        "purpleLight": "紫色主题 - 白色侧边栏",
-        "red": "喜庆红（笑）",
-        "redLight": "红色主题 - 白色侧边栏",
-        "black": "高端黑",
-        "blackLight": "黑色主题 - 白色侧边栏"
+        "primary": "现代蓝",
+        "amber": "琥珀黄",
+        "purple": "高贵紫",
+        "orange": "奇迹橙",
+        "pink": "少女粉",
+        "negative": "警示红",
+        "positive": "安全绿",
+        "blue": "天空蓝",
+        "teal": "水鸭青",
+        "grey": "虚无灰",
+        "light-blue": "清澈蓝",
+        "indigo": "靛蓝色"
       }
     },
     "plugins": {

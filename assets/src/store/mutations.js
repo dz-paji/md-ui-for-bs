@@ -42,7 +42,7 @@ export default {
       {
         title: 'general.customize',
         icon: 'perm_media',
-        link: '/admin/customzie'
+        link: '/admin/customize'
       },
       {
         title: 'general.scoreOptions',
