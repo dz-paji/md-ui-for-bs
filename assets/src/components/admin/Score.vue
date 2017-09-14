@@ -7,65 +7,60 @@
             {{ $trans('admin.options.rate.title') }}
           </div>
           <div class="card-content">
-            <div>
-              <div class="caption">
-                {{ $trans('admin.options.rate.scorePerStorage.title') }}
-              </div>
+            <option-item
+              first
+              :caption="$trans('admin.options.rate.scorePerStorage.title')"
+            >
               <q-numeric v-model="scorePerStorage" :min="0" />
               <span>
                 {{ $trans('admin.options.rate.scorePerStorage.addon') }}
               </span>
-            </div>
+            </option-item>
 
-            <div class="option-margin">
-              <div class="caption">
-                {{ $trans('admin.options.rate.privateScorePerStorage.title') }}
-              </div>
+            <option-item
+              :caption="$trans(
+                'admin.options.rate.privateScorePerStorage.title'
+              )"
+              :hint="$trans('admin.options.rate.privateScorePerStorage.hint')"
+            >
               <q-numeric v-model="privateScorePerStorage" :min="0" />
               <span>
                 {{ $trans('admin.options.rate.privateScorePerStorage.addon') }}
               </span>
-              <q-tooltip anchor="bottom middle" self="top middle">
-                {{ $trans('admin.options.rate.privateScorePerStorage.hint') }}
-              </q-tooltip>
-            </div>
+            </option-item>
 
-            <div class="option-margin">
-              <div class="caption">
-                {{ $trans('admin.options.rate.scorePerClosetItem.title') }}
-              </div>
+            <option-item
+              :caption="$trans('admin.options.rate.scorePerClosetItem.title')"
+            >
               <q-numeric v-model="scorePerClosetItem" :min="0" />
               <span>
                 {{ $trans('admin.options.rate.scorePerClosetItem.addon') }}
               </span>
-            </div>
+            </option-item>
 
-            <div class="option-margin">
-              <div class="caption">
-                {{ $trans('admin.options.rate.returnScore.title') }}
-              </div>
+            <option-item
+              :caption="$trans('admin.options.rate.returnScore.title')"
+            >
               <label>
                 <q-toggle v-model="returnScore"></q-toggle>
                 {{ $trans('admin.options.rate.returnScore.label') }}
               </label>
-            </div>
+            </option-item>
 
-            <div class="option-margin">
-              <div class="caption">
-                {{ $trans('admin.options.rate.scorePerPlayer.title') }}
-              </div>
+            <option-item
+              :caption="$trans('admin.options.rate.scorePerPlayer.title')"
+            >
               <q-numeric v-model="scorePerPlayer" :min="0" />
               <span>
                 {{ $trans('admin.options.rate.scorePerPlayer.addon') }}
               </span>
-            </div>
+            </option-item>
 
-            <div class="option-margin">
-              <div class="caption">
-                {{ $trans('admin.options.rate.userInitialScore.title') }}
-              </div>
+            <option-item
+              :caption="$trans('admin.options.rate.userInitialScore.title')"
+            >
               <q-numeric v-model="userInitialScore" :min="0" />
-            </div>
+            </option-item>
 
             <button
               class="primary clear pull-right btn-margin"
@@ -83,28 +78,26 @@
             {{ $trans('admin.options.sign.title') }}
           </div>
           <div class="card-content">
-            <div>
-              <div class="caption">
-                {{ $trans('admin.options.sign.signScore.title') }}
-              </div>
+            <option-item
+              first
+              :caption="$trans('admin.options.sign.signScore.title')"
+            >
               <q-numeric v-model="signMin" :min="0" />
               <span>{{ $trans('admin.options.sign.signScore.addon1') }}</span>
               <q-numeric v-model="signMax" />
               <span>{{ $trans('admin.options.sign.signScore.addon2') }}</span>
-            </div>
+            </option-item>
 
-            <div class="option-margin">
-              <div class="caption">
-                {{ $trans('admin.options.sign.signGapTime.title') }}
-              </div>
+            <option-item
+              :caption="$trans('admin.options.sign.signGapTime.title')"
+            >
               <q-numeric v-model="signGapTime" :min="0" />
               <span>{{ $trans('admin.options.sign.signGapTime.addon') }}</span>
-            </div>
+            </option-item>
 
-            <div class="option-margin">
-              <div class="caption">
-                {{ $trans('admin.options.sign.signAfterZero.title') }}
-              </div>
+            <option-item
+              :caption="$trans('admin.options.sign.signAfterZero.title')"
+            >
               <label>
                 <q-toggle v-model="signAfterZero"></q-toggle>
                 {{ $trans('admin.options.sign.signAfterZero.label') }}
@@ -112,7 +105,7 @@
                   {{ $trans('admin.options.sign.signAfterZero.hint') }}
                 </q-tooltip>
               </label>
-            </div>
+            </option-item>
 
             <button
               class="primary clear pull-right btn-margin"
@@ -129,9 +122,12 @@
 
 <script>
 import BaseSkeleton from './Base'
+import OptionItem from '../common/OptionItem'
+
 export default {
   components: {
-    BaseSkeleton
+    BaseSkeleton,
+    OptionItem
   },
   data () {
     return {
@@ -169,29 +165,18 @@ export default {
     }
   },
   async beforeMount () {
-    const {
-      scorePerStorage,
-      privateScorePerStorage,
-      scorePerClosetItem,
-      returnScore,
-      scorePerPlayer,
-      userInitialScore,
-      signMin,
-      signMax,
-      signGapTime,
-      signAfterZero
-    } = await this.$bs('/md/options/score')
+    const data = await this.$bs('/md/options/score')
 
-    this.scorePerStorage = scorePerStorage
-    this.privateScorePerStorage = privateScorePerStorage
-    this.scorePerClosetItem = scorePerClosetItem
-    this.returnScore = returnScore
-    this.scorePerPlayer = scorePerPlayer
-    this.userInitialScore = userInitialScore
-    this.signMin = signMin
-    this.signMax = signMax
-    this.signGapTime = signGapTime
-    this.signAfterZero = signAfterZero
+    this.scorePerStorage = data.scorePerStorage
+    this.privateScorePerStorage = data.privateScorePerStorage
+    this.scorePerClosetItem = data.scorePerClosetItem
+    this.returnScore = data.returnScore
+    this.scorePerPlayer = data.scorePerPlayer
+    this.userInitialScore = data.userInitialScore
+    this.signMin = data.signMin
+    this.signMax = data.signMax
+    this.signGapTime = data.signGapTime
+    this.signAfterZero = data.signAfterZero
   }
 }
 </script>

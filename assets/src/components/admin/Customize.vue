@@ -129,33 +129,23 @@
             {{ $trans('admin.options.homepage.title') }}
           </div>
           <div class="card-content">
-            <div>
-              <div class="caption">
-                {{ $trans('admin.options.homepage.homePicUrl.title') }}
-              </div>
-              <input class="full-width" v-model="homePicUrl" />
-              <q-tooltip anchor="bottom middle" self="top middle">
-                {{ $trans('admin.options.homepage.homePicUrl.hint') }}
-              </q-tooltip>
-            </div>
+            <option-item
+              first
+              :caption="$trans('admin.options.homepage.homePicUrl.title')"
+              :hint="$trans('admin.options.homepage.homePicUrl.hint')"
+            ><input class="full-width" v-model="homePicUrl" /></option-item>
 
-            <div>
-              <div class="caption option-margin">
-                {{ $trans('admin.options.homepage.faviconUrl.title') }}
-              </div>
-              <input class="full-width" v-model="faviconUrl" />
-              <q-tooltip anchor="bottom middle" self="top middle">
-                {{ $trans('admin.options.homepage.faviconUrl.hint') }}
-              </q-tooltip>
-              <small>
-                {{ $trans('admin.options.homepage.faviconUrl.description') }}
-              </small>
-            </div>
+            <option-item
+              :caption="$trans('admin.options.homepage.faviconUrl.title')"
+              :hint="$trans('admin.options.homepage.faviconUrl.hint')"
+              :description="$trans(
+                'admin.options.homepage.faviconUrl.description'
+              )"
+            ><input class="full-width" v-model="faviconUrl" /></option-item>
 
-            <div>
-              <div class="caption option-margin">
-                {{ $trans('admin.options.homepage.copyrightPrefer.title') }}
-              </div>
+            <option-item
+              :caption="$trans('admin.options.homepage.copyrightPrefer.title')"
+            >
               <q-select
                 type="list"
                 class="full-width"
@@ -169,12 +159,11 @@
                   false
                 )">
               </small>
-            </div>
+            </option-item>
 
-            <div>
-              <div class="caption option-margin">
-                {{ $trans('admin.options.homepage.copyrightText.title') }}
-              </div>
+            <option-item
+              :caption="$trans('admin.options.homepage.copyrightText.title')"
+            >
               <textarea
                 v-model="copyrightText"
                 class="full-width"
@@ -187,7 +176,7 @@
                   false
                 )"
               ></small>
-            </div>
+            </option-item>
 
             <button
               class="primary clear pull-right btn-margin"
@@ -202,9 +191,11 @@
 
 <script>
 import BaseSkeleton from './Base'
+import OptionItem from '../common/OptionItem'
 export default {
   components: {
-    BaseSkeleton
+    BaseSkeleton,
+    OptionItem
   },
   data () {
     return {
@@ -294,17 +285,12 @@ export default {
   async beforeMount () {
     this.convertHexColor(this.$store.state.site.theme)
 
-    const {
-      homePicUrl,
-      faviconUrl,
-      copyrightPrefer,
-      copyrightText
-    } = await this.$bs('/md/options/customize')
+    const data = await this.$bs('/md/options/customize')
 
-    this.homePicUrl = homePicUrl
-    this.faviconUrl = faviconUrl
-    this.copyrightPrefer = copyrightPrefer
-    this.copyrightText = copyrightText
+    this.homePicUrl = data.homePicUrl
+    this.faviconUrl = data.faviconUrl
+    this.copyrightPrefer = data.copyrightPrefer
+    this.copyrightText = data.copyrightText
   }
 }
 </script>
