@@ -717,11 +717,9 @@
           "hint": "隐私信息不会被收集"
         }
       },
-      "announ": {
+      "announcement": {
         "title": "站点公告",
-        "announcement": {
-          "description": "可使用 Markdown 进行排版"
-        }
+        "description": "可使用 Markdown 进行排版"
       },
       "resources": {
         "title": "资源文件配置",

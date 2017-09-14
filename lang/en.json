@@ -687,7 +687,7 @@
         "ipGetMethod": {
           "title": "Get IP via",
           "httpXForwardedFor": "HTTP_X_FORWARDED_FOR (can be fabricated)",
-          "remoteAddr": "REMOTE_ADDR (isn't suit for sites under load balancer)",
+          "remoteAddr": "REMOTE_ADDR (is not suit for sites under load balancer)",
           "hint": "We have no method to get the real IP address of client with PHP."
         },
         "maxUploadFileSize": {
@@ -714,11 +714,9 @@
           "hint": "Information about privacy will nerver be sent."
         }
       },
-      "announ": {
+      "announcement": {
         "title": "Announcement",
-        "announcement": {
-          "description": "Styling with Markdown is supported."
-        }
+        "description": "Styling with Markdown is supported."
       },
       "resources": {
         "title": "Resource Files",

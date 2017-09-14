@@ -88,6 +88,11 @@ export default new VueRouter({
       meta: { title: 'general.scoreOptions' }
     },
     {
+      path: '/admin/options',
+      component: load('admin/Options'),
+      meta: { title: 'general.options' }
+    },
+    {
       path: '/go',
       beforeEnter: to => {
         window.location.pathname = decodeURI(to.query.dst)

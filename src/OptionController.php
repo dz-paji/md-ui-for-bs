@@ -93,4 +93,77 @@ class OptionController extends Controller
 
         return json(['errno' => 0, 'msg' => trans('options.option-saved')]);
     }
+
+    public function getSiteOptions()
+    {
+        return [
+            'phpMaxUpload' => ini_get('upload_max_filesize'),
+            'siteName' => Option::get('site_name'),
+            'siteDescription' => Option::get('site_description'),
+            'siteUrl' => Option::get('site_url'),
+            'userCanRegister' => (bool) Option::get('user_can_register'),
+            'regsPerIp' => (int) Option::get('regs_per_ip'),
+            'ipGetMethod' => Option::get('ip_get_method'),
+            'maxUploadFileSize' => (int) Option::get('max_upload_file_size'),
+            'allowChinesePlayername' => (bool) Option::get(
+                'allow_chinese_player_name'
+            ),
+            'apiType' => Option::get('api_type'),
+            'autoDelInvalidTexture' => (bool) Option::get(
+                'auto_del_invalid_texture'
+            ),
+            'commentScript' => Option::get('comment_script'),
+            'allowSendingStatistics' => (bool) Option::get(
+                'allow_sending_statistics'
+            ),
+            'announcement' => Option::get('announcement'),
+            'forceSsl' => (bool) Option::get('force_ssl'),
+            'autoDetectAssetUrl' => (bool) Option::get(
+                'auto_detect_asset_url'
+            ),
+            'return200WhenNotfound' => (bool) Option::get(
+                'return_200_when_not_found'
+            ),
+            'cacheExpireTime' => (int) Option::get('cache_expire_time')
+        ];
+    }
+
+    public function setSiteOptions(Request $request)
+    {
+        $options = [];
+
+        if ($request->category === 'general') {
+            $options = collect([
+                'siteName',
+                'siteDescription',
+                'siteUrl',
+                'userCanRegister',
+                'regsPerIp',
+                'ipGetMethod',
+                'maxUploadFileSize',
+                'allowChinesePlayername',
+                'apiType',
+                'autoDelInvalidTexture',
+                'commentScript',
+                'allowSendingStatistics'
+            ]);
+        } elseif ($request->category === 'announcement') {
+            $options = collect(['announcement']);
+        } elseif ($request->category === 'resources') {
+            $options = collect([
+                'forceSsl',
+                'autoDetectAssetUrl',
+                'return200WhenNotfound',
+                'cacheExpireTime'
+            ]);
+        } else {
+            return json(['errno' => 1]);
+        }
+
+        $options->each(function ($option) use ($request) {
+            Option::set(snake_case($option), $request->input($option));
+        });
+
+        return json(['errno' => 0, 'msg' => trans('options.option-saved')]);
+    }
 }
