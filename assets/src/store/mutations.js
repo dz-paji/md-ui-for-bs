@@ -74,5 +74,8 @@ export default {
   },
   changeLocale (state, locale) {
     state.site.locale = locale
+  },
+  initialized (state) {
+    state.initialized = true
   }
 }

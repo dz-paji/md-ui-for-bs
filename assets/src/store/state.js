@@ -16,5 +16,6 @@ export default {
     role: 'normal',
     avatar: '',
     nickname: ''
-  }
+  },
+  initialized: false
 }

@@ -29,11 +29,6 @@ export default {
     open () {
       this.$refs.drawer.open()
     }
-  },
-  beforeCreate () {
-    if (!this.$store.getters.isAdmin) {
-      this.$router.replace('/user')
-    }
   }
 }
 </script>

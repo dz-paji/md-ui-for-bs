@@ -1,25 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import store from './store'
+
 Vue.use(VueRouter)
 
 function load (component) {
   return () => System.import(`components/${component}.vue`)
 }
 
-export default new VueRouter({
-  /*
-   * NOTE! VueRouter "history" mode DOESN'T works for Cordova builds,
-   * it is only to be used only for websites.
-   *
-   * If you decide to go with "history" mode, please also open /config/index.js
-   * and set "build.publicPath" to something other than an empty string.
-   * Example: '/' instead of current ''
-   *
-   * If switching back to default "hash" mode, don't forget to set the
-   * build publicPath back to '' so Cordova builds work again.
-   */
-
+const router = new VueRouter({
   routes: [
     { path: '/', redirect: '/user' },
     {
@@ -60,37 +50,37 @@ export default new VueRouter({
     {
       path: '/admin',
       component: load('admin/Index'),
-      meta: { title: 'general.dashboard' }
+      meta: { title: 'general.dashboard', admin: true }
     },
     {
       path: '/admin/users',
       component: load('admin/Users'),
-      meta: { title: 'general.userManage' }
+      meta: { title: 'general.userManage', admin: true }
     },
     {
       path: '/admin/players',
       component: load('admin/Players'),
-      meta: { title: 'general.playerManage' }
+      meta: { title: 'general.playerManage', admin: true }
     },
     {
       path: '/admin/plugins/manage',
       component: load('admin/Plugins'),
-      meta: { title: 'general.pluginManage' }
+      meta: { title: 'general.pluginManage', admin: true }
     },
     {
       path: '/admin/customize',
       component: load('admin/Customize'),
-      meta: { title: 'general.customize' }
+      meta: { title: 'general.customize', admin: true }
     },
     {
       path: '/admin/score',
       component: load('admin/Score'),
-      meta: { title: 'general.scoreOptions' }
+      meta: { title: 'general.scoreOptions', admin: true }
     },
     {
       path: '/admin/options',
       component: load('admin/Options'),
-      meta: { title: 'general.options' }
+      meta: { title: 'general.options', admin: true }
     },
     {
       path: '/go',
@@ -101,3 +91,16 @@ export default new VueRouter({
     { path: '*', component: load('Error404') } // Not found
   ]
 })
+
+router.beforeEach(async (to, from, next) => {
+  if (!store.state.initialized) {
+    await store.dispatch('fetchAllBasicInfo')
+  }
+  if (to.meta.admin && !store.getters.isAdmin) {
+    next('/user')
+  } else {
+    next()
+  }
+})
+
+export default router

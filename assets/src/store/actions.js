@@ -18,5 +18,6 @@ export default {
     commit('updateSite', site)
     commit('updateUser', user)
     commit('updateMenu', menu)
+    commit('initialized')
   }
 }
