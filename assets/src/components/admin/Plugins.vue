@@ -137,13 +137,15 @@ export default {
       this.plugins = (await this.$bs('/admin/plugins/data')).data
       done && done()
     },
-    enablePlugin (name) {
-      this.$bs('/admin/plugins/manage', { action: 'enable', name })
-        .then(this.fetchData)
+    async enablePlugin (name) {
+      await this.$bs('/admin/plugins/manage', { action: 'enable', name })
+      this.fetchData()
+      this.$store.dispatch('fetchMenu')
     },
-    disablePlugin (name) {
-      this.$bs('/admin/plugins/manage', { action: 'disable', name })
-        .then(this.fetchData)
+    async disablePlugin (name) {
+      await this.$bs('/admin/plugins/manage', { action: 'disable', name })
+      this.fetchData()
+      this.$store.dispatch('fetchMenu')
     },
     pluginConfig (name) {
       this.$router.push(`/admin/plugins/config/${name}`)
@@ -155,9 +157,13 @@ export default {
           {
             label: this.$trans('general.confirm'),
             classes: 'negative',
-            handler: () => this.$bs('/admin/plugins/manage', {
-              action: 'delete', name
-            }).then(this.fetchData)
+            handler: async () => {
+              await this.$bs('/admin/plugins/manage', {
+                action: 'delete', name
+              })
+              this.fetchData()
+              this.$store.dispatch('fetchMenu')
+            }
           },
           { label: this.$trans('general.cancel') }
         ]
