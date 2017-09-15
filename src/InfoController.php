@@ -39,6 +39,7 @@ class InfoController extends Controller
                 'siteUrl' => option('site_url'),
                 'theme' => $md_theme,
                 'locale' => session('locale'),
+                'version' => config('app.version'),
                 'customCopyright' => bs_custom_copyright(),
                 'bsCopyright' => bs_copyright(),
                 'allowChinesePlayerName' => option('allow_chinese_playername')
@@ -127,6 +128,22 @@ class InfoController extends Controller
                 'textureTypeCount' => $this->getTextureTypeCount()
             ]
         ];
+    }
+
+    public function getUpdateInfo()
+    {
+        $data = [];
+
+        try {
+            $info = json_decode(
+                file_get_contents(option('update_source')),
+                true
+            );
+
+            return $data = $info['releases'][$info['latest_version']];
+        } catch (\Exception $e) {
+            return json(['errno' => 1]);
+        }
     }
 
     private function getActivityStatus()

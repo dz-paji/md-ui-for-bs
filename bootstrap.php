@@ -27,6 +27,7 @@ return function (Request $request) {
             $route->any('info/basic', 'InfoController@basicInfo');
             $route->any('info/user-index', 'InfoController@userIndexPage');
             $route->any('info/player', 'InfoController@playerInfo');
+            $route->any('info/update', 'InfoController@getUpdateInfo');
 
             $route->group([
                 'middleware' => ['web', 'auth', 'admin']
@@ -39,6 +40,8 @@ return function (Request $request) {
                 $route->post('options/customize', 'OptionController@setCustomizeOptions');
                 $route->get('options/site', 'OptionController@getSiteOptions');
                 $route->post('options/site', 'OptionController@setSiteOptions');
+                $route->get('options/update', 'OptionController@getUpdateOptions');
+                $route->post('options/update', 'OptionController@setUpdateOptions');
             });
 
             // For plugins

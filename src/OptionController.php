@@ -165,4 +165,24 @@ class OptionController extends Controller
 
         return json(['errno' => 0, 'msg' => trans('options.option-saved')]);
     }
+
+    public function getUpdateOptions()
+    {
+        return [
+            'checkUpdate' => (bool) Option::get('check_update'),
+            'updateSource' => Option::get('update_source')
+        ];
+    }
+
+    public function setUpdateOptions(Request $request)
+    {
+        collect([
+            'checkUpdate',
+            'updateSource'
+        ])->each(function ($option) use ($request) {
+            Option::set(snake_case($option), $request->input($option));
+        });
+
+        return json(['errno' => 0, 'msg' => trans('options.option-saved')]);
+    }
 }

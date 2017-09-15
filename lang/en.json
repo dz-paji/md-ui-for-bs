@@ -583,7 +583,7 @@
           "text": "Download Link:",
           "link": "Click to download full program package."
         },
-        "checkGithub": "<a href=\":url\" target=\"_blank\" class=\"btn btn-default pull-right\">Check GitHub Releases</a>",
+        "checkGithub": "Check GitHub Releases",
         "button": "Update Now"
       },
       "cautions": {

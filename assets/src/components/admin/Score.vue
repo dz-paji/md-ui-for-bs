@@ -182,9 +182,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.option-margin
-  margin-top 20px
-
 .btn-margin
   margin-bottom 10px
 </style>

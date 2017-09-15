@@ -585,7 +585,7 @@
           "text": "下载地址：",
           "link": "点击下载完整安装包"
         },
-        "checkGithub": "<a href=\":url\" target=\"_blank\" class=\"btn btn-default pull-right\">查看 GitHub Releases</a>",
+        "checkGithub": "查看 GitHub Releases",
         "button": "马上升级"
       },
       "cautions": {
