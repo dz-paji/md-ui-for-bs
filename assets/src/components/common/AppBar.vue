@@ -11,10 +11,19 @@
       v-model="lang"
       :options="locales"
     ></q-select>
+    <button
+      class="clear logout-button"
+      :title="$trans('general.logout')"
+      @click="logout"
+    >
+      <i>exit_to_app</i>
+    </button>
   </div>
 </template>
 
 <script>
+import { Dialog } from 'quasar'
+
 export default {
   data () {
     return {
@@ -41,6 +50,23 @@ export default {
   methods: {
     openDrawer () {
       this.$emit('openDrawer')
+    },
+    logout () {
+      Dialog.create({
+        title: this.$trans('general.confirmLogout'),
+        buttons: [
+          {
+            label: this.$trans('general.confirm'),
+            handler: async () => {
+              await this.$bs('/auth/logout', {})
+              setTimeout(() => {
+                window.location.pathname = '/'
+              }, 1000)
+            }
+          },
+          { label: this.$trans('general.cancel') }
+        ]
+      })
     }
   },
   beforeMount () {
@@ -50,3 +76,8 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.logout-button
+  margin-left 15px
+</style>
