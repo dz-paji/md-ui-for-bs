@@ -88,6 +88,12 @@ const router = new VueRouter({
       meta: { title: 'general.checkUpdate', admin: true }
     },
     {
+      path: '/admin/plugins/config/:name',
+      beforeEnter: (to, from, next) => {
+        next(`/go?dst=/admin/plugins/config/${to.params.name}`)
+      }
+    },
+    {
       path: '/go',
       beforeEnter: to => {
         window.location.pathname = decodeURI(to.query.dst)
