@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-text-bar" :style="themeColor">
+  <div class="footer-text-bar colorful-bar" :style="themeColor">
     <span v-html="customCopyright"></span>
     <span
       class="pull-right lt-md-hide"

@@ -1,5 +1,5 @@
 <template>
-  <div :style="themeColor">
+  <div class="colorful-bar" :style="themeColor">
     <button class="hide-on-drawer-visible" @click="openDrawer">
         <i>menu</i>
      </button>

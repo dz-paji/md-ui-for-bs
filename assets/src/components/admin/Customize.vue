@@ -245,7 +245,8 @@ export default {
           this.mdThemeB.toString(16).padStart(2, '0')
       },
       set (val) {
-        this.$store.commit('updateSite', { theme: val })
+        Array.from(document.getElementsByClassName('colorful-bar'))
+          .forEach(el => (el.style.backgroundColor = val))
       }
     }
   },
