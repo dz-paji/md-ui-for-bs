@@ -2,8 +2,9 @@
 
 use App\Services\Hook;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Events\Dispatcher;
 
-return function (Request $request) {
+return function (Request $request, Dispatcher $events) {
     // Fallback to AdminLTE if uses IE
     $user_agent = $request->header('user-agent');
     if (str_contains($user_agent, 'MSIE') || str_contains($user_agent, 'Trident')) {
@@ -17,6 +18,20 @@ return function (Request $request) {
 
     app()->make('Illuminate\Contracts\Http\Kernel')
         ->pushMiddleware($ns.'\RedirectToMD');
+
+    $events->listen(App\Events\RenderingFooter::class, function ($event) {
+        $event->addContent(
+            '<link rel="prefetch" href="'.
+                plugin_assets('md-ui', 'assets/dist/js/app.js').
+            '" />'.
+            '<link rel="prefetch" href="'.
+                plugin_assets('md-ui', 'assets/dist/js/manifest.js').
+            '" />'.
+            '<link rel="prefetch" href="'.
+                plugin_assets('md-ui', 'assets/dist/js/vendor.js').
+            '" />'
+        );
+    });
 
     Hook::addRoute(function ($router) use ($ns) {
         $router->group([
