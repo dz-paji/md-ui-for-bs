@@ -19,5 +19,4 @@ test:
     - yarn test
   post:
     - mkdir ./artifacts
-    - node ./scripts/screenshot.js
     - yarn run release
