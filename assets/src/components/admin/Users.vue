@@ -20,7 +20,7 @@
               {{ $trans('admin.changePassword') }}
             </button>
             <button
-              v-if="cell.row.permission === 2"
+              v-if="cell.row.permission !== 2"
               class="negative"
               @click="deleteUser(cell.row.uid)"
             >
