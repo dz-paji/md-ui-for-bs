@@ -1,6 +1,6 @@
 import mutations from '../../assets/src/store/mutations'
 
-describe('Test mutations', () => {
+describe('test mutations', () => {
   it('load menu', () => {
     const state = { menu: { user: [], admin: [] } }
 
