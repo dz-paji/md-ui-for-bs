@@ -7,7 +7,7 @@ module.exports = {
   },
   env: {
     browser: true,
-    mocha: true
+    jasmine: true
   },
   globals: {
     'cordova': true,
