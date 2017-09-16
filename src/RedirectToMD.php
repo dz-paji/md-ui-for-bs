@@ -23,7 +23,8 @@ class RedirectToMD
             'admin/plugins/manage',
             'admin/customize',
             'admin/score',
-            'admin/options'
+            'admin/options',
+            'admin/update'
         ];
 
         $path = $request->path();
