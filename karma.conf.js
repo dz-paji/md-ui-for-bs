@@ -1,3 +1,5 @@
+const isCI = require('is-ci')
+
 const baseWebpackConfig = require('./build/webpack.base.conf')
 
 const webpackConfig = {
@@ -27,7 +29,13 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     browserConsoleLogOptions: { terminal: false },
     autoWatch: true,
-    browsers: ['ChromeHeadless', 'Firefox'],
+    browsers: ['ChromeHeadless', isCI ? 'Firefox' : 'FirefoxHeadless'],
+    customLaunchers: {
+      FirefoxHeadless: {
+        base: 'Firefox',
+        flags: ['-headless']
+      }
+    },
     singleRun: true,
     concurrency: Infinity
   })
