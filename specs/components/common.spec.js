@@ -56,7 +56,9 @@ describe('Option Item', () => {
       description: 'description'
     },
     slots: {
-      default: 'option'
+      default: {
+        render: h => h('h1', {}, ['option-content'])
+      }
     }
   })
   const inner = wrapper.find('div')[0]
@@ -76,5 +78,9 @@ describe('Option Item', () => {
 
   it('should render description', () => {
     expect(inner.find('small')[0].text()).toBe('description')
+  })
+
+  it('should render option content', () => {
+    expect(wrapper.find('h1')[0].text()).toBe('option-content')
   })
 })
