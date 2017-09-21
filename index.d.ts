@@ -9,7 +9,7 @@ declare module 'vue/types/vue' {
       options?: {
         success? (resData: { errno?: number, msg?: string }),
         error? (resData: { errno?: number, msg?: string }),
-        useToast? = true
+        useToast?: boolean
       }
     ): Promise<{ errno: number, msg: string }>
     $bsLink (uri: string): string
