@@ -1,22 +1,26 @@
 <template>
   <base-skeleton>
     <div class="row layout-padding">
-      <span class="label bg-pink text-white">
+      <router-link tag="button" to="/admin/users"
+                   class="pink relative-position badge-btn">
         {{ $trans('admin.index.totalUsers') }}
-        <span class="right-detail">{{ users }}</span>
-      </span>&nbsp;
-      <span class="label bg-red text-white">
+        <span class="floating label bg-dark">
+          {{ users }}
+        </span>
+      </router-link>
+      <router-link tag="button" to="/admin/players"
+                   class="red relative-position badge-button">
         {{ $trans('admin.index.totalPlayers') }}
-        <span class="right-detail">{{ players }}</span>
-      </span>&nbsp;
-      <span class="label bg-deep-purple text-white">
+        <span class="floating label bg-dark">{{ players }}</span>
+      </router-link>&nbsp;
+      <button class="deep-purple relative-position badge-button">
         {{ $trans('admin.index.totalTextures') }}
-        <span class="right-detail">{{ textures }}</span>
-      </span>&nbsp;
-      <span class="label bg-secondary text-white">
+        <span class="floating label bg-dark">{{ textures }}</span>
+      </button>
+      <button class="secondary relative-position badge-button">
         {{ $trans('admin.index.diskUsage') }}
-        <span class="right-detail">{{ storageText }}</span>
-      </span>
+        <span class="floating label bg-dark">{{ storageText }}</span>
+      </button>
     </div>
     <div class="row gutter sm-column layout-padding">
       <div class="width-1of2"><echart :options="activityStatusChart" /></div>
@@ -280,3 +284,8 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+.badge-button
+  margin-left 10px
+</style>
