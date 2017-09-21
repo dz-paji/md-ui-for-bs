@@ -128,6 +128,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { Dialog } from 'quasar-framework'
 import moment from 'moment'
 import 'moment/locale/zh-CN'
 import BaseSkeleton from './Base'
@@ -149,7 +150,8 @@ export default {
       isPreRelease: false,
       releastTime: 0,
       updateProgress: 0,
-      updateState: 'updateNow'
+      updateState: 'updateNow',
+      extractingDialogClose: null
     }
   },
   computed: {
@@ -194,7 +196,12 @@ export default {
         if (this.updateProgress === 100) {
           clearInterval(interval)
           this.updateState = 'extract'
+          this.extractingDialogClose = Dialog.create({
+            title: this.$trans('admin.extracting'),
+            buttons: []
+          })
           await this.$bs('/admin/update/download?action=extract')
+          this.extractingDialogClose()
           window.location.pathname = '/'
         } else {
           const { size } =
