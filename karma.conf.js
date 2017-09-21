@@ -28,7 +28,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     browserConsoleLogOptions: { terminal: false },
-    autoWatch: true,
+    autoWatch: false,
     browsers: ['ChromeHeadless', isCI ? 'Firefox' : 'FirefoxHeadless'],
     customLaunchers: {
       FirefoxHeadless: {
