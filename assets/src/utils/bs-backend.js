@@ -5,7 +5,7 @@ const bsBackend = axios.create({
   baseURL: process.env.NODE_ENV === 'development' ? '/api' : '/'
 })
 
-export async function bs (uri, data = undefined, options = {}) {
+export async function bs (uri, data, options = {}) {
   const { success, error, useToast = true } = options
   try {
     const response = await (data
@@ -14,7 +14,7 @@ export async function bs (uri, data = undefined, options = {}) {
     const { data: resData } = response
 
     const { errno, msg } = resData
-    if (errno === undefined || msg === undefined) {
+    if (errno || msg) {
       return resData
     }
     if (errno === 0) {

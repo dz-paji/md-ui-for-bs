@@ -1,3 +1,8 @@
+/* eslint-disable quote-props */
+function externalLink (link) {
+  return `/go?dst=${encodeURI(link)}`
+}
+
 const mapping = {
   '皮肤工具': {
     title: 'plugins.skinUtilities.menu',
@@ -28,7 +33,8 @@ const mapping = {
   },
   'GPlane\\PluginsMarket::general.name': {
     title: 'plugins.pluginsMarket.title',
-    icon: 'shop'
+    icon: 'shop',
+    link: '/admin/plugins/market'
   },
   '导入数据': {
     title: 'plugins.importData.name',
@@ -37,16 +43,13 @@ const mapping = {
   }
 }
 
-function externalLink (link) {
-  return `/go?dst=${encodeURI(link)}`
-}
-
-export default ({ title, link }) => {
-  return title in mapping
+// eslint-disable-next-line no-extra-parens
+export default ({ title, link }) => (
+  title in mapping
     ? mapping[title]
     : {
       title,
       icon: 'polymer',
       link: externalLink(link)
     }
-}
+)

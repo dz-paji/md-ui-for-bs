@@ -1,15 +1,11 @@
+/* eslint-disable camelcase */
 import en from '../../../lang/en.json'
-import zh_CN from '../../../lang/zh_cn.json'  // eslint-disable-line camelcase
+import zh_CN from '../../../lang/zh_cn.json'
 
 const lang = { en, zh_CN }
 
-export default {
-  install (Vue) {
-    Vue.prototype.$trans = $trans
-  }
-}
-
 function $trans (key, placeholder = {}, escape = true) {
+  // eslint-disable-next-line no-invalid-this
   const current = this.$store.state.site.locale
 
   const keys = key.split('.')
@@ -58,10 +54,16 @@ function $trans (key, placeholder = {}, escape = true) {
       reHasUnescapedHtml = RegExp(reUnescapedHtml.source)
     return reHasUnescapedHtml.test(text)
       ? text.replace(
-          reUnescapedHtml,
-          unescapedChar => htmlEscapes[unescapedChar]
-        )
+        reUnescapedHtml,
+        unescapedChar => htmlEscapes[unescapedChar]
+      )
       : text
   }
   return text
+}
+
+export default {
+  install (Vue) {
+    Vue.prototype.$trans = $trans
+  }
 }
